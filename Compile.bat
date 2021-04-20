@@ -25,7 +25,7 @@ call %MG_ROOT%\batch\compile.bat EndOfProgram          /nl %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat GetDateFile           /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat SetNavigation         /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ViewData              /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
-call %MG_ROOT%\batch\compile.bat MoveActiveWindow     /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat MoveActiveWindow      /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 call %MG_ROOT%\batch\compile.bat test                  /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 
