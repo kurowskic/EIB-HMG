@@ -1,0 +1,765 @@
+* HMG-IDE ANSI Form Designer Generated Code
+* (c) Roberto Lopez - http://sites.google.com/site/hmgweb
+
+DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1540 HEIGHT 825 VIRTUAL WIDTH Nil VIRTUAL HEIGHT Nil TITLE "" ICON "MAINICON"  NOMAXIMIZE NOMINIMIZE NOSIZE NOSYSMENU NOCAPTION CURSOR NIL ON INIT WIN_MAIN_ONINIT() ON RELEASE Nil ON INTERACTIVECLOSE Nil ON MOUSECLICK Nil ON MOUSEDRAG Nil ON MOUSEMOVE Nil ON SIZE Nil ON MAXIMIZE Nil ON MINIMIZE Nil ON PAINT Nil BACKCOLOR {0,85,229} NOTIFYICON NIL NOTIFYTOOLTIP NIL ON NOTIFYCLICK Nil ON GOTFOCUS Nil ON LOSTFOCUS Nil ON SCROLLUP Nil ON SCROLLDOWN Nil ON SCROLLLEFT Nil ON SCROLLRIGHT Nil ON HSCROLLBOX Nil ON VSCROLLBOX Nil
+
+    DEFINE LABEL lbl_BackGround
+        ROW    2
+        COL    0
+        WIDTH  725
+        HEIGHT 32
+        VALUE ""
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR { 000 , 085 , 229 }
+        FONTCOLOR NIL
+    END LABEL
+
+    DEFINE IMAGE img_APPTitle
+        ROW    2
+        COL    2
+        WIDTH  32
+        HEIGHT 32
+        PICTURE "APP_MAIN"
+        HELPID Nil
+        VISIBLE .T.
+        STRETCH .T.
+        ACTION Nil
+    END IMAGE
+
+    DEFINE LABEL lbl_APPTitle
+        ROW    2
+        COL    45
+        WIDTH  585
+        HEIGHT 32
+        VALUE "Elektroniczne Skrzynki Podawcze"
+        FONTNAME fARIAL
+        FONTSIZE 20
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR { 000 , 085 , 229 }
+        FONTCOLOR { 255 , 255 , 255 }
+    END LABEL
+
+    DEFINE LABEL lbl_Counter
+        ROW    2
+        COL    540
+        WIDTH  250
+        HEIGHT 32
+        VALUE ""
+        FONTNAME fCOURIER
+        FONTSIZE 20
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR { 000 , 085 , 229 }
+        FONTCOLOR { 000 , 000 , 000 }
+    END LABEL
+
+    DEFINE LABEL lbl_Date
+        ROW    2
+        COL    820
+        WIDTH  450
+        HEIGHT 32
+        VALUE ""
+        FONTNAME fCOURIER
+        FONTSIZE 20
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION Nil
+        AUTOSIZE .F.
+        BACKCOLOR { 000 , 085 , 229 }
+        FONTCOLOR { 000 , 000 , 000 }
+    END LABEL
+
+    DEFINE BUTTON btn_DownloadCSV
+        ROW    2
+        COL    1380
+        WIDTH  32
+        HEIGHT 32
+        ACTION win_Main_btn_DownloadCSV_Action()
+        CAPTION Nil
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE Nil
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE BUTTON btn_About
+        ROW    2
+        COL    1430
+        WIDTH  32
+        HEIGHT 32
+        ACTION win_Main_btn_About_Action()
+        CAPTION Nil
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE Nil
+        PICTALIGNMENT TOP
+    END BUTTON  
+
+    DEFINE BUTTON btn_MinPR
+        ROW    2
+        COL    1470
+        WIDTH  32
+        HEIGHT 32
+        ACTION win_Main_btn_MinPR()
+        CAPTION Nil
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE "APP_MINI_20"
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE BUTTON btn_ExitPR
+        ROW    2
+        COL    1505
+        WIDTH  32
+        HEIGHT 32
+        ACTION win_Main_btn_ExitPR()
+        CAPTION Nil
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE "APP_EXIT_20"
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE TEXTBOX txb_Name
+        ROW    80
+        COL    20
+        WIDTH  450
+        HEIGHT 35
+        FONTNAME fTAHOMA
+        FONTSIZE 15
+        TOOLTIP ""
+        ONCHANGE win_Main_txb_Name_OnChange()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR Nil
+        FONTCOLOR Nil
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE LABEL lbl_Name
+        ROW    80
+        COL    470
+        WIDTH  35
+        HEIGHT 35
+        VALUE "O"
+        FONTNAME fTAHOMA
+        FONTSIZE 24
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        BORDER .T.
+        ACTION win_Main_lbl_Name_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 255 , 255 , 255 }
+        FONTCOLOR { 000 , 170 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE TEXTBOX txb_Address
+        ROW    80
+        COL    525
+        WIDTH  450
+        HEIGHT 35
+        FONTNAME fTAHOMA
+        FONTSIZE 15
+        TOOLTIP ""
+        ONCHANGE win_Main_txb_Address_OnChange()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE LABEL lbl_Address
+        ROW    80
+        COL    975
+        WIDTH  35
+        HEIGHT 35
+        VALUE "O"
+        FONTNAME fTAHOMA
+        FONTSIZE 24
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        BORDER .T.
+        ACTION win_Main_lbl_Address_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 255 , 255 , 255 }
+        FONTCOLOR { 000 , 170 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE TEXTBOX txb_Place
+        ROW    80
+        COL    1030
+        WIDTH  450
+        HEIGHT 35
+        FONTNAME fTAHOMA
+        FONTSIZE 15
+        TOOLTIP ""
+        ONCHANGE win_Main_txb_Place_OnChange()
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONENTER Nil
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .F.
+        RIGHTALIGN .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        CASECONVERT NONE
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        INPUTMASK Nil
+        FORMAT Nil
+        VALUE ""
+    END TEXTBOX
+
+    DEFINE LABEL lbl_Place
+        ROW    80
+        COL    1480
+        WIDTH  35
+        HEIGHT 35
+        VALUE "O"
+        FONTNAME fTAHOMA
+        FONTSIZE 24
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        BORDER .T.
+        ACTION win_Main_lbl_Place_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 255 , 255 , 255 }
+        FONTCOLOR { 000 , 170 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lbl_First
+        ROW    135
+        COL    40
+        WIDTH  340
+        HEIGHT 35
+        VALUE "||<<"
+        FONTNAME fTAHOMA
+        FONTSIZE 20
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION win_Main_lbl_First_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 255 , 255 , 255 }
+        FONTCOLOR { 000 , 170 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lbl_Prior
+        ROW    135
+        COL    410
+        WIDTH  340
+        HEIGHT 35
+        VALUE "<<"
+        FONTNAME fTAHOMA
+        FONTSIZE 20
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION win_Main_lbl_Prior_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 255 , 255 , 255 }
+        FONTCOLOR { 000 , 170 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lbl_Next
+        ROW    135
+        COL    780
+        WIDTH  340
+        HEIGHT 35
+        VALUE ">>"
+        FONTNAME fTAHOMA
+        FONTSIZE 20
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION win_Main_lbl_Next_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 255 , 255 , 255 }
+        FONTCOLOR { 000 , 170 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lbl_Last
+        ROW    135
+        COL    1150
+        WIDTH  340
+        HEIGHT 35
+        VALUE ">>||"
+        FONTNAME fTAHOMA
+        FONTSIZE 20
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        ACTION win_Main_lbl_Last_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 255 , 255 , 255 }
+        FONTCOLOR { 000 , 170 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE FRAME frm_Record1
+        ROW    180
+        COL    20
+        WIDTH  1500
+        HEIGHT 95
+        FONTNAME fARIAL
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE EDITBOX edb_Record1
+        ROW    185 
+        COL    25
+        WIDTH  1490
+        HEIGHT 85
+        VALUE ""
+        FONTNAME fTAHOMA
+        FONTSIZE 13
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .T.
+        HSCROLLBAR .F.
+        VSCROLLBAR .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END EDITBOX
+
+    DEFINE FRAME frm_Record2
+        ROW    285
+        COL    20
+        WIDTH  1500
+        HEIGHT 95
+        FONTNAME fARIAL
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE EDITBOX edb_Record2
+        ROW    290
+        COL    25
+        WIDTH  1490
+        HEIGHT 85
+        VALUE ""
+        FONTNAME fTAHOMA
+        FONTSIZE 13
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .T.
+        HSCROLLBAR .F.
+        VSCROLLBAR .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END EDITBOX
+
+    DEFINE FRAME frm_Record3
+        ROW    390
+        COL    20
+        WIDTH  1500
+        HEIGHT 95
+        FONTNAME fARIAL
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE EDITBOX edb_Record3
+        ROW    395
+        COL    25
+        WIDTH  1490
+        HEIGHT 85
+        VALUE ""
+        FONTNAME fTAHOMA
+        FONTSIZE 13
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .T.
+        HSCROLLBAR .F.
+        VSCROLLBAR .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END EDITBOX
+
+    DEFINE FRAME frm_Record4
+        ROW    495
+        COL    20
+        WIDTH  1500
+        HEIGHT 95
+        FONTNAME fARIAL
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE EDITBOX edb_Record4
+        ROW    500
+        COL    25
+        WIDTH  1490
+        HEIGHT 85
+        VALUE ""
+        FONTNAME fTAHOMA
+        FONTSIZE 13
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .T.
+        HSCROLLBAR .F.
+        VSCROLLBAR .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END EDITBOX
+
+    DEFINE FRAME frm_Record5
+        ROW    600
+        COL    20
+        WIDTH  1500
+        HEIGHT 95
+        FONTNAME fARIAL
+        FONTSIZE 9
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        CAPTION NIL
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+        OPAQUE .T.
+    END FRAME
+
+    DEFINE EDITBOX edb_Record5
+        ROW    605
+        COL    25
+        WIDTH  1490
+        HEIGHT 85
+        VALUE ""
+        FONTNAME fTAHOMA
+        FONTSIZE 13
+        TOOLTIP ""
+        ONCHANGE Nil
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        TABSTOP .T.
+        VISIBLE .T.
+        READONLY .T.
+        HSCROLLBAR .F.
+        VSCROLLBAR .F.
+        DISABLEDBACKCOLOR Nil
+        DISABLEDFONTCOLOR Nil
+        BACKCOLOR NIL
+        FONTCOLOR NIL
+    END EDITBOX
+
+    DEFINE LABEL lbl_EPUAP
+        ROW    730
+        COL    10
+        WIDTH  1520
+        HEIGHT 30
+        VALUE "èrÛd≥o danych: epuap.gov.pl"
+        FONTNAME fTAHOMA
+        FONTSIZE 16
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .T.
+        BORDER .T.
+        ACTION win_Main_lbl_EPUAP_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 000 , 085 , 229 }
+        FONTCOLOR { 255 , 255 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lbl_csv
+        ROW    770
+        COL    10
+        WIDTH  750
+        HEIGHT 30
+        VALUE "Pobierz plik w formacie csv"
+        FONTNAME fTAHOMA
+        FONTSIZE 16
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        BORDER .T.
+        ACTION win_Main_lbl_csv_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 000 , 085 , 229 }
+        FONTCOLOR { 255 , 255 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+    DEFINE LABEL lbl_xml
+        ROW    770
+        COL    780
+        WIDTH  750
+        HEIGHT 30
+        VALUE "Pobierz plik w formacie xml"
+        FONTNAME fTAHOMA
+        FONTSIZE 16
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        HELPID Nil
+        VISIBLE .T.
+        TRANSPARENT .F.
+        BORDER .T.
+        ACTION win_Main_lbl_xml_Action()
+        AUTOSIZE .F.
+        BACKCOLOR { 000 , 085 , 229 }
+        FONTCOLOR { 255 , 255 , 000 }
+        CENTERALIGN .T. 
+    END LABEL
+
+END WINDOW
+

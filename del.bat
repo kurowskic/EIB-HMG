@@ -1,0 +1,11 @@
+del *.log
+del _temp.o
+del _temp.rc
+del *.obj
+del *.c
+del *.res
+del *.rsp
+del _hmg_resconfig.h
+del errorlog.htm
+del eib_hmg.exe
+del eib.exe

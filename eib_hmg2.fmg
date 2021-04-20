@@ -1,0 +1,415 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2011 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/                                                                                                                                      
+
+DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1540 HEIGHT 825 ICON 'MAINICON' MAIN NOSIZE NOSYSMENU ON INIT WIN_MAIN_ONINIT( ) BACKCOLOR { 000 , 085 , 229 }  ON MOUSECLICK MOVEACTIVEWINDOW( , THIS.NAME )
+
+     DEFINE LABEL lbl_BackGround
+            ROW    2
+            COL    0
+            WIDTH  725
+            HEIGHT 32
+            VALUE ""
+            FONTNAME fARIAL
+            FONTSIZE 10
+            BACKCOLOR { 000 , 085 , 229 }
+     END LABEL  
+
+     DEFINE IMAGE img_APPTitle
+            ROW    2
+            COL    2
+            WIDTH  32
+            HEIGHT 32
+            PICTURE "APP_MAIN"
+            STRETCH .T.
+     END IMAGE  
+
+     DEFINE LABEL lbl_APPTitle
+            ROW    2
+            COL    45
+            WIDTH  585
+            HEIGHT 32
+            VALUE "Elektroniczne Skrzynki Podawcze"
+            FONTNAME fARIAL
+            FONTSIZE 20
+            BACKCOLOR { 000 , 085 , 229 }
+            FONTCOLOR { 255 , 255 , 255 }
+            VCENTERALIGN .T.
+            ACTION MoveActiveWindow( , "win_Main" )
+     END LABEL  
+
+     DEFINE LABEL lbl_Counter
+            ROW    2
+            COL    540
+            WIDTH  150
+            HEIGHT 32
+            VALUE ""
+            FONTNAME fCOURIER
+            FONTSIZE 20
+            BACKCOLOR { 000 , 085 , 229 }
+            FONTCOLOR { 000 , 000 , 000 }
+            VCENTERALIGN .T.
+            RIGHTALIGN .T. 
+            ACTION MoveActiveWindow( , "win_Main" )
+     END LABEL  
+
+     DEFINE LABEL lbl_Date
+            ROW    2
+            COL    820
+            WIDTH  350
+            HEIGHT 32
+            VALUE ""
+            FONTNAME fCOURIER
+            FONTSIZE 20
+            BACKCOLOR { 000 , 085 , 229 }
+            FONTCOLOR { 000 , 000 , 000 }
+            VCENTERALIGN .T.
+            RIGHTALIGN .F.
+            ACTION MoveActiveWindow( , "win_Main" )
+     END LABEL  
+
+     DEFINE BUTTON btn_DownloadCSV
+            ROW    2
+            COL    1380
+            WIDTH  32
+            HEIGHT 32
+            CAPTION ""
+            FONTNAME fARIAL
+            FONTSIZE 10
+            PICTURE ""
+            ACTION win_Main_btn_DownloadCSV_Action()
+     END BUTTON  
+
+     DEFINE BUTTON btn_About
+            ROW    2
+            COL    1430
+            WIDTH  32
+            HEIGHT 32
+            CAPTION ""
+            FONTNAME fARIAL
+            FONTSIZE 10
+            PICTURE ""
+            ACTION win_Main_btn_About_Action()
+     END BUTTON  
+
+     DEFINE BUTTON btn_MinPR
+            ROW    2
+            COL    1470
+            WIDTH  32
+            HEIGHT 32
+            CAPTION ""
+            FONTNAME fARIAL
+            FONTSIZE 10
+            PICTURE ""
+     END BUTTON  
+
+     DEFINE BUTTON btn_ExitPR
+            ROW    2
+            COL    1505
+            WIDTH  32
+            HEIGHT 32
+            CAPTION ""
+            FONTNAME fARIAL
+            FONTSIZE 10
+            PICTURE ""
+     END BUTTON  
+
+     DEFINE TEXTBOX txb_Name
+            ROW    80
+            COL    20
+            WIDTH  450
+            HEIGHT 35
+            FONTNAME fTAHOMA
+            FONTSIZE 15
+            FONTBOLD .F.
+            ON CHANGE win_Main_txb_Name_OnChange()
+     END TEXTBOX 
+
+     DEFINE LABEL lbl_Name
+            ROW    80
+            COL    470
+            WIDTH  35
+            HEIGHT 35
+            VALUE "O"
+            FONTNAME fTAHOMA
+            FONTSIZE 24
+            BACKCOLOR { 255 , 255 , 255 }
+            FONTCOLOR { 000 , 170 , 000 }
+            ACTION win_Main_lbl_Name_Action()
+            ONMOUSEHOVER win_Main_lbl_Name_OnMouseHover()
+            ONMOUSELEAVE win_Main_lbl_Name_Leave()
+            CENTERALIGN .T.
+            VCENTERALIGN .T.
+            BORDER .T.
+     END LABEL  
+
+     DEFINE TEXTBOX txb_Address
+            ROW    80
+            COL    525
+            WIDTH  450
+            HEIGHT 35
+            FONTNAME fTAHOMA
+            FONTSIZE 15
+            ON CHANGE win_Main_txb_Address_OnChange()
+     END TEXTBOX 
+
+     DEFINE LABEL lbl_Address
+            ROW    80
+            COL    975
+            WIDTH  35
+            HEIGHT 35
+            VALUE "O"
+            FONTNAME fTAHOMA
+            FONTSIZE 24
+            BACKCOLOR { 255 , 255 , 255 }
+            FONTCOLOR { 000 , 170 , 000 }
+            ACTION win_Main_lbl_Address_Action()
+            ONMOUSEHOVER win_Main_lbl_Address_OnMouseHover()
+            ONMOUSELEAVE win_Main_lbl_Address_Leave()
+            CENTERALIGN .T.
+            VCENTERALIGN .T.
+            BORDER .T.
+     END LABEL  
+
+     DEFINE TEXTBOX txb_Place
+            ROW    80
+            COL    1030
+            WIDTH  450
+            HEIGHT 35
+            FONTNAME fTAHOMA
+            FONTSIZE 15
+            ON CHANGE win_Main_txb_Place_OnChange()
+     END TEXTBOX 
+
+     DEFINE LABEL lbl_Place
+            ROW    80
+            COL    1480
+            WIDTH  35
+            HEIGHT 35
+            VALUE "O"
+            FONTNAME fTAHOMA
+            FONTSIZE 24
+            BACKCOLOR { 255 , 255 , 255 }
+            FONTCOLOR { 000 , 170 , 000 }
+            ACTION win_Main_lbl_Place_Action()
+            ONMOUSEHOVER win_Main_lbl_Place_OnMouseHover()
+            ONMOUSELEAVE win_Main_lbl_Place_Leave()
+            CENTERALIGN .T.
+            VCENTERALIGN .T.
+            BORDER .T.
+     END LABEL  
+
+     DEFINE LABEL lbl_First
+            ROW    135
+            COL    40
+            WIDTH  340
+            HEIGHT 35
+            VALUE "||<<"
+            FONTNAME fTAHOMA
+            FONTSIZE 20
+            ACTION win_Main_lbl_First_Action()
+            ONMOUSEHOVER win_Main_lbl_First_OnMouseHover()
+            ONMOUSELEAVE win_Main_lbl_First_Leave()
+            BACKCOLOR { 255 , 255 , 255 }
+            FONTCOLOR { 000 , 170 , 000 }
+            CENTERALIGN .T.
+            VCENTERALIGN .T.
+            BORDER .T.
+     END LABEL  
+
+     DEFINE LABEL lbl_Prior
+            ROW    135
+            COL    410
+            WIDTH  340
+            HEIGHT 35
+            VALUE "<<"
+            FONTNAME fTAHOMA
+            FONTSIZE 20
+            ACTION win_Main_lbl_Prior_Action()
+            ONMOUSEHOVER win_Main_lbl_Prior_OnMouseHover()
+            ONMOUSELEAVE win_Main_lbl_Prior_Leave()
+            BACKCOLOR { 255 , 255 , 255 }
+            FONTCOLOR { 000 , 170 , 000 }
+            CENTERALIGN .T.
+            VCENTERALIGN .T.
+            BORDER .T.
+     END LABEL  
+
+     DEFINE LABEL lbl_Next
+            ROW    135
+            COL    780
+            WIDTH  340
+            HEIGHT 35
+            VALUE ">>"
+            FONTNAME fTAHOMA
+            FONTSIZE 20
+            ACTION win_Main_lbl_Next_Action()
+            ONMOUSEHOVER win_Main_lbl_Next_OnMouseHover()
+            ONMOUSELEAVE win_Main_lbl_Next_Leave()
+            BACKCOLOR { 255 , 255 , 255 }
+            FONTCOLOR { 000 , 170 , 000 }
+            CENTERALIGN .T.
+            VCENTERALIGN .T.
+            BORDER .T.
+     END LABEL  
+
+     DEFINE LABEL lbl_Last
+            ROW    135
+            COL    1150
+            WIDTH  340
+            HEIGHT 35
+            VALUE ">>||"
+            FONTNAME fTAHOMA
+            FONTSIZE 20
+            ACTION win_Main_lbl_Last_Action()
+            ONMOUSEHOVER win_Main_lbl_Last_OnMouseHover()
+            ONMOUSELEAVE win_Main_lbl_Last_Leave()
+            BACKCOLOR { 255 , 255 , 255 }
+            FONTCOLOR { 000 , 170 , 000 }
+            CENTERALIGN .T.
+            VCENTERALIGN .T.
+            BORDER .T.
+     END LABEL  
+
+     DEFINE FRAME frm_Record1
+            COL 20
+            ROW 180
+            WIDTH 1500
+            HEIGHT 95
+     END FRAME 
+
+     DEFINE EDITBOX edb_Record1
+            ROW    185
+            COL    25
+            WIDTH  1490
+            HEIGHT 85
+            READONLY .T.
+            FONTNAME fTAHOMA
+            FONTSIZE 13
+            NOVSCROLLBAR .T.
+            NOHSCROLLBAR .T.
+     END EDITBOX   
+
+     DEFINE FRAME frm_Record2
+            COL 20
+            ROW 285
+            WIDTH 1500
+            HEIGHT 95
+     END FRAME 
+
+     DEFINE EDITBOX edb_Record2
+            ROW    290
+            COL    25
+            WIDTH  1490
+            HEIGHT 85
+            READONLY .T.
+            FONTNAME fTAHOMA
+            FONTSIZE 13
+            NOVSCROLLBAR .T.
+            NOHSCROLLBAR .T.
+     END EDITBOX   
+
+     DEFINE FRAME frm_Record3
+            COL 20
+            ROW 390
+            WIDTH 1500
+            HEIGHT 95
+     END FRAME 
+
+     DEFINE EDITBOX edb_Record3
+            ROW    395
+            COL    25
+            WIDTH  1490
+            HEIGHT 85
+            READONLY .T.
+            FONTNAME fTAHOMA
+            FONTSIZE 13
+            NOVSCROLLBAR .T.
+            NOHSCROLLBAR .T.
+     END EDITBOX   
+
+     DEFINE FRAME frm_Record4
+            COL 20
+            ROW 495
+            WIDTH 1500
+            HEIGHT 95
+     END FRAME 
+
+     DEFINE EDITBOX edb_Record4
+            ROW    500
+            COL    25
+            WIDTH  1490
+            HEIGHT 85
+            READONLY .T.
+            FONTNAME fTAHOMA
+            FONTSIZE 13
+            NOVSCROLLBAR .T.
+            NOHSCROLLBAR .T.
+     END EDITBOX   
+
+     DEFINE FRAME frm_Record5
+            COL 20
+            ROW 600
+            WIDTH 1500
+            HEIGHT 95
+     END FRAME 
+
+     DEFINE EDITBOX edb_Record5
+            ROW    605
+            COL    25
+            WIDTH  1490
+            HEIGHT 85
+            READONLY .T.
+            FONTNAME fTAHOMA
+            FONTSIZE 13
+            NOVSCROLLBAR .T.
+            NOHSCROLLBAR .T.
+     END EDITBOX   
+
+     DEFINE LABEL lbl_EPUAP
+            ROW    730
+            COL    10
+            WIDTH  1520
+            HEIGHT 30
+            VALUE "èrÛd≥o danych: epuap.gov.pl"
+            FONTNAME fTAHOMA
+            FONTSIZE 16
+            ACTION win_Main_lbl_EPUAP_Action()
+            BACKCOLOR { 000 , 085 , 229 }
+            FONTCOLOR { 255 , 255 , 000 }
+            BORDER .T.
+            CENTERALIGN .T.
+     END LABEL  
+
+     DEFINE LABEL lbl_csv
+            ROW    770
+            COL    10
+            WIDTH  750
+            HEIGHT 30
+            VALUE "Pobierz plik w formacie csv"
+            FONTNAME fTAHOMA
+            FONTSIZE 16
+            ACTION win_Main_lbl_csv_Action()
+            BACKCOLOR { 000 , 085 , 229 }
+            FONTCOLOR { 255 , 255 , 000 }
+            BORDER .T.
+            CENTERALIGN .T.
+     END LABEL  
+
+     DEFINE LABEL lbl_xml
+            ROW    770
+            COL    780
+            WIDTH  750
+            HEIGHT 30
+            VALUE "Pobierz plik w formacie xml"
+            FONTNAME fTAHOMA
+            FONTSIZE 16
+            ACTION win_Main_lbl_xml_Action()
+            BACKCOLOR { 000 , 085 , 229 }
+            FONTCOLOR { 255 , 255 , 000 }
+            BORDER .T.
+            CENTERALIGN .T.
+     END LABEL  
+
+END WINDOW
+
+

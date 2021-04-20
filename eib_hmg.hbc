@@ -1,0 +1,14 @@
+incpaths=
+libpaths=
+libs=hbziparc
+libs=hbmzip
+libs=minizip
+libs=hbct
+libs=hbtip
+libs=hbmisc
+libs=xhb
+libs=hbwin
+libs=ini
+gt=
+mt=no
+instpaths=
