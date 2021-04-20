@@ -62,6 +62,9 @@ PROCEDURE Download()
 
     ON KEY ALT+F4 OF win_Download ACTION { || NIL }
 
+    win_Download.Row := ( APP_ROW + ( APP_HEIGHT - win_Download.Height ) / 2 )
+    win_Download.Col := ( APP_COL + ( APP_WIDTH  - win_Download.Width  ) / 2 )
+
     AADD( aFrm , { "win_Download" , win_Download.Row, win_Download.Col } )
 
     CTK_DrawBorder( "win_Download" )
