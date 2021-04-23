@@ -1,5 +1,5 @@
-// HMG Official -> _HMG_3_    <-------
-// HMG Extended -> _HMG_2_    
+// HMG Official -> _HMG_3_
+// HMG Extended -> _HMG_2_    <-------
 // HMG 4        -> _HMG_4_
 // MARINAS_GUI  -> _MAR_
 // XAILER       -> _XAR_
@@ -10,6 +10,5 @@
 // LOG  -> __LOG__
 //
 
-#DEFINE  _HMG_3_
+#DEFINE  _HMG_2_
 
-MEMVAR _HMG_SYSDATA

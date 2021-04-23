@@ -17,7 +17,6 @@ RETURN
 PROCEDURE About_OnInit()
 *-----------------------------------------------------------------------------*
 
-  win_About.btn_OK.SetFocus
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -27,7 +26,34 @@ RETURN
 PROCEDURE About_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-  afrm := CTK_Restore( aFrm )
+#IFDEF _HMG_3_
+
+  do_events()
+
+
+  IF  .NOT. EMPTY ( aFrm[ 1 , 2 ] )
+  
+    win_About.Row := (  APP_ROW + ( APP_HEIGHT - win_About.Height ) / 2 )
+	
+  ELSE
+  
+      win_About.Row := ( ( APP_HEIGHT - win_About.Height ) / 2 )
+  ENDIF
+
+
+  IF  .NOT. EMPTY( aFrm[ 1 , 3 ] )
+ 
+    win_About.Col := ( APP_COL + ( APP_WIDTH - win_About.Width ) / 2 ) 
+	
+  ELSE
+  
+    win_About.Col := ( ( APP_WIDTH - win_About.Width ) / 2 )
+
+  ENDIF
+
+  do_events()
+	
+#ENDIF
  
 RETURN
 *-----------------------------------------------------------------------------*

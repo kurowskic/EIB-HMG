@@ -101,6 +101,7 @@ MEMVAR APP_ROW
 MEMVAR APP_COL
 MEMVAR APP_HEIGHT
 MEMVAR APP_WIDTH
+MEMVAR aFrm
 
 
 *-----------------------------------------------------------------------------*

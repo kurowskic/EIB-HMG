@@ -27,7 +27,6 @@ PROCEDURE Main()
   PUBLIC APP_HEIGHT
   PUBLIC APP_WIDTH
 
-
   PUBLIC fARIAL
   PUBLIC fCOURIER
   PUBLIC fTIMES
@@ -90,6 +89,16 @@ PROCEDURE Main()
 
 
   ERRORLEVEL( 0 )
+
+
+#IFDEF _HMG_3_
+
+  APP_ROW    :=    0
+  APP_COL    :=    0
+  APP_HEIGHT := 1536 
+  APP_WIDTH  :=  824
+
+#ENDIF
 
 
   aFrm := {}

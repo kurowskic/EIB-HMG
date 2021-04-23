@@ -1,6 +1,6 @@
-*-----------------------------------------------------------------------------*
-#include "eib_hmg.ch"
-*-----------------------------------------------------------------------------*
+*-----------------------------------------------------------------------------*
+#include "eib_hmg.ch"
+*-----------------------------------------------------------------------------*
 
 
 *-----------------------------------------------------------------------------*
@@ -41,6 +41,7 @@ PROCEDURE About()
   PRIVATE lbl_6
   PRIVATE lbl_7
   PRIVATE btn_OK
+
 
   DECLARE WINDOW win_Main
   DECLARE WINDOW win_About
@@ -107,8 +108,13 @@ PROCEDURE About()
 
     ON KEY ALT+F4 OF win_About ACTION { || NIL }
 
+
+#IFDEF _HMG_2_
+
     win_About.Row := ( APP_ROW + ( APP_HEIGHT - win_About.Height ) / 2 )
     win_About.Col := ( APP_COL + ( APP_WIDTH  - win_About.Width  ) / 2 )
+
+#ENDIF
 
 
     AADD( aFrm, { "win_About" , win_About.Row , win_About.Col } )

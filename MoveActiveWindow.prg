@@ -23,7 +23,7 @@ PROCEDURE MoveActiveWindow( hWnd , cForm )
 
   DEFAULT hWnd := GetActiveWindow()
 
-//  DECLARE WINDOW win_Main
+  DECLARE WINDOW win_Main
 
 
   IF nMouseRow >= nFormRow .AND. nMouseRow <= ( nFormRow + 50 - 1 )
@@ -33,9 +33,6 @@ PROCEDURE MoveActiveWindow( hWnd , cForm )
       PostMessage( hWnd , WM_NCLBUTTONDOWN , HTCAPTION , 0 )
 
     ENDIF
-
-
-  ELSE
 
 
   ENDIF
@@ -57,9 +54,14 @@ PROCEDURE MoveActiveWindow( hWnd , cForm )
 
 
     IF nAPPCol + nFormWidth > nDesktopWidth
+	
+      SetProperty( cForm , 'Col' , nDesktopWidth - nFormWidth )
+      nAPPCol :=  GetProperty( cForm , 'Col' )
 
-      nAPPCol := SetProperty( cForm , 'Col' , nDesktopWidth - nFormWidth )
+     ELSE
 
+      SetProperty( cForm , 'Col' , nAPPCol )
+	  
     ENDIF
 
 
@@ -74,20 +76,24 @@ PROCEDURE MoveActiveWindow( hWnd , cForm )
 
 
     IF nAPPRow + nFormHeight > nDesktopHeight
-
-      nAPPRow := SetProperty( cForm , 'Row' , nDesktopHeight - nFormHeight )
-
+	
+      SetProperty( cForm , 'Row' , nDesktopHeight - nFormHeight )
+      nAPPRow := GetProperty( cForm , 'Row' )
+	  
+    ELSE
+	
+      SetProperty( cForm , 'Row' , nAPPRow )
+	  
     ENDIF
+
 
   ENDIF
 
 
   do_events()
 
-  APP_ROW    := nAPPRow // win_Main.Row
-  APP_COL    := nAPPCol // win_Main.Col
-  APP_HEIGHT := nFormHeight // win_Main.Height
-  APP_WIDTH  := nFormWidth // win_Main.Width
+  APP_ROW    := nAPPRow
+  APP_COL    := nAPPCol
 
   do_events()
 
