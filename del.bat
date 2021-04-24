@@ -7,5 +7,6 @@ del *.res
 del *.rsp
 del _hmg_resconfig.h
 del errorlog.htm
+del eib_ver.ch
 del eib_hmg.exe
 del eib.exe
