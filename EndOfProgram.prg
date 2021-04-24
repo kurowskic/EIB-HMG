@@ -1,12 +1,8 @@
 *-----------------------------------------------------------------------------*
 #include "eib_hmg.ch"
 *-----------------------------------------------------------------------------*
-/*
-  MEMVAR APP_ROW
-  MEMVAR APP_COL
-  MEMVAR APP_HEIGHT
-  MEMVAR APP_WIDTH
-*/
+
+
 *-----------------------------------------------------------------------------*
 PROCEDURE EndOfProgram()
 *-----------------------------------------------------------------------------*
@@ -44,10 +40,7 @@ PROCEDURE EndOfProgram()
     win_EndOfProgram.TitleBar := .F.
     win_EndOfProgram.SysMenu  := .T.
     win_EndOfProgram.Sizable  := .F.
-/*
-    SetProperty( "win_EndOfProgram" , "btn_YES" , "Action" , { || EndOfProgram_btn_YES() } )
-    SetProperty( "win_EndOfProgram" , "btn_NOT" , "Action" , { || EndOfProgram_btn_NOT() } )
-*/
+
 #ENDIF
 
 
@@ -63,8 +56,14 @@ PROCEDURE EndOfProgram()
 
     ON KEY ALT+F4 OF win_EndOfProgram ACTION { || NIL }
 
+
+#IFDEF _HMG_2_
+
     win_EndOfProgram.Row := ( APP_ROW + ( APP_HEIGHT - win_EndOfProgram.Height ) / 2 )
     win_EndOfProgram.Col := ( APP_COL + ( APP_WIDTH  - win_EndOfProgram.Width  ) / 2 )
+
+#ENDIF
+
 
     AADD( aFrm , { "win_EndOfProgram"    , ;
                  win_EndOfProgram.Row  , ;
