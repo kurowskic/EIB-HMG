@@ -51,8 +51,8 @@ PROCEDURE EndOfProgram()
 #ENDIF
 
 
-    SetProperty( "win_EndOfProgram" , "btn_YES" , "Action" , { || EndOfProgram_btn_YES() } )
-    SetProperty( "win_EndOfProgram" , "btn_NOT" , "Action" , { || EndOfProgram_btn_NOT() } )
+    SetProperty( "win_EndOfProgram" , "btn_YES" , "Action" , { || win_EndOfProgram_btn_YES() } )
+    SetProperty( "win_EndOfProgram" , "btn_NOT" , "Action" , { || win_EndOfProgram_btn_NOT() } )
 
     ON KEY ALT+F4 OF win_EndOfProgram ACTION { || NIL }
 
