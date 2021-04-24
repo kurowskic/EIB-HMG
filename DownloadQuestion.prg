@@ -4,7 +4,7 @@
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE DownloadQuestion()
+PROCEDURE DownloadQuestion( xlbl_0 )
 *-----------------------------------------------------------------------------*
 
   MEMVAR lbl_BackGround
@@ -27,7 +27,6 @@ PROCEDURE DownloadQuestion()
 
 
   DECLARE WINDOW win_Main
-
   DECLARE WINDOW win_DownloadQuestion
 
 
@@ -41,26 +40,33 @@ PROCEDURE DownloadQuestion()
     win_DownloadQuestion.TitleBar := .F.
     win_DownloadQuestion.SysMenu  := .T.
     win_DownloadQuestion.Sizable  := .F.
-
+	
 #ENDIF
 
 
 #IFDEF _HMG_3_
 
-    LOAD WINDOW DownloadQuestion3 AS DownloadQuestion
+    LOAD WINDOW DownloadQuestion3 AS win_DownloadQuestion
 
 #ENDIF
 
-    SetProperty( "win_DownloadQuestion" , "btn_YES" , "Action" , { || DownloadQuestion_btn_YES() } )
-    SetProperty( "win_DownloadQuestion" , "btn_NOT" , "Action" , { || DownloadQuestion_btn_NOT() } )
 
-    SetProperty( "win_DownloadQuestion" , "lbl_0"   , "Value" , "Brak danych" )
+    SetProperty( "win_DownloadQuestion" , "btn_YES" , "Action" , { || win_DDownloadQuestion_btn_YES() } )
+    SetProperty( "win_DownloadQuestion" , "btn_NOT" , "Action" , { || win_DDownloadQuestion_btn_NOT() } )
+
+    SetProperty( "win_DownloadQuestion" , "lbl_0"   , "Value" , xlbl_0 )
     SetProperty( "win_DownloadQuestion" , "lbl_1"   , "Value" , "Pobraæ dane?" )
 
-//    ON KEY ALT+F4 OF win_DownloadQuestion ACTION { || NIL }
+    ON KEY ALT+F4 OF win_DownloadQuestion ACTION { || NIL }
+
+
+#IFDEF _HMG_2_
 
     win_DownloadQuestion.Row := ( APP_ROW + ( APP_HEIGHT - win_DownloadQuestion.Height ) / 2 )
     win_DownloadQuestion.Col := ( APP_COL + ( APP_WIDTH  - win_DownloadQuestion.Width  ) / 2 )
+
+#ENDIF
+
 
     AADD( aFrm , { "win_DownloadQuestion" , win_DownloadQuestion.Row , win_DownloadQuestion.Col } )
 

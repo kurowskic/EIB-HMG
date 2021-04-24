@@ -1,10 +1,12 @@
 *-----------------------------------------------------------------------------*
-PROCEDURE DownloadQuestion_btn_YES()
+PROCEDURE win_DDownloadQuestion_btn_YES()
 *-----------------------------------------------------------------------------*
 
   CTK_DrawBorder( "win_DownloadQuestion" )
 
   DO_Events()
+
+  win_DownloadQuestion.Hide
 
   Download()
   DataBaseInit()
@@ -18,7 +20,7 @@ RETURN
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE DownloadQuestion_btn_NOT()
+PROCEDURE win_DDownloadQuestion_btn_NOT()
 *-----------------------------------------------------------------------------*
 
   ViewData( nPage )
@@ -32,22 +34,39 @@ RETURN
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE DownloadQuestion_OnInit()
+PROCEDURE win_DDownloadQuestion_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-  CTK_DrawBorder( "win_DownloadQuestion" )
+
+#IFDEF _HMG_3_
 
   DO_Events()
 
-RETURN
-*-----------------------------------------------------------------------------*
+
+  IF  .NOT. EMPTY ( aFrm[ 1 , 2 ] )
+  
+    win_DownloadQuestion.Row := (  APP_ROW + ( APP_HEIGHT - win_DownloadQuestion.Height ) / 2 )
+	
+  ELSE
+  
+      win_DownloadQuestion.Row := ( ( APP_HEIGHT - win_DownloadQuestion.Height ) / 2 )
+  ENDIF
 
 
-*-----------------------------------------------------------------------------*
-PROCEDURE DownloadQuestion_OnGotFocus()
-*-----------------------------------------------------------------------------*
+  IF  .NOT. EMPTY( aFrm[ 1 , 3 ] )
+ 
+    win_DownloadQuestion.Col := ( APP_COL + ( APP_WIDTH - win_DownloadQuestion.Width ) / 2 ) 
+	
+  ELSE
+  
+    win_DownloadQuestion.Col := ( ( APP_WIDTH - win_DownloadQuestion.Width ) / 2 )
 
-  afrm := CTK_Restore( aFrm )
+  ENDIF
+
+  DO_Events()
+	
+#ENDIF
+
  
 RETURN
 *-----------------------------------------------------------------------------*
