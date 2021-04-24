@@ -7,6 +7,11 @@
 PROCEDURE Main()
 *-----------------------------------------------------------------------------*
 
+  MEMVAR APP_ROW
+  MEMVAR APP_COL
+  MEMVAR APP_HEIGHT
+  MEMVAR APP_WIDTH
+
   MEMVAR fARIAL
   MEMVAR fCOURIER
   MEMVAR fTIMES
@@ -17,8 +22,10 @@ PROCEDURE Main()
 
   MEMVAR nPage
 
-  PUBLIC nAPPRow
-  PUBLIC nAPPCol
+  PUBLIC APP_ROW
+  PUBLIC APP_COL
+  PUBLIC APP_HEIGHT
+  PUBLIC APP_WIDTH
 
   PUBLIC fARIAL
   PUBLIC fCOURIER
@@ -82,6 +89,16 @@ PROCEDURE Main()
 
 
   ERRORLEVEL( 0 )
+
+
+#IFDEF _HMG_3_
+
+  APP_ROW    :=    0
+  APP_COL    :=    0
+  APP_HEIGHT := 1536 
+  APP_WIDTH  :=  824
+
+#ENDIF
 
 
   aFrm := {}
@@ -180,6 +197,7 @@ PROCEDURE Main()
     EventProcessAllHookMessage( EventCreate( "LabelEventHandler" , win_Main.lbl_Next.HANDLE )  , .T.)
     EventProcessAllHookMessage( EventCreate( "LabelEventHandler" , win_Main.lbl_Last.HANDLE )  , .T.)
 
+
     SetCueBanner( GetControlHandle( "txb_Name"    , "win_Main" ) , " Nazwa instytucji (fragment)" , .F. )
     SetCueBanner( GetControlHandle( "txb_Address" , "win_Main" ) , " ulica (fragment)"            , .F. )
     SetCueBanner( GetControlHandle( "txb_Place"   , "win_Main" ) , " miejscowoœæ (fragment)"      , .F. )
@@ -197,6 +215,10 @@ PROCEDURE Main()
 
 #ENDIF
 
+    APP_ROW    := win_Main.Row
+    APP_COL    := win_Main.Col
+    APP_HEIGHT := win_Main.Height
+    APP_WIDTH  := win_Main.Width
 
     AADD( aFrm , { "win_Main" , win_Main.Row , win_Main.Col } )
 
@@ -212,6 +234,8 @@ PROCEDURE Main()
     win_Main.btn_ExitPR.Picture      := 'APP_EXIT_20'   
     win_Main.btn_MinPR.Picture       := 'APP_MINI_20'
 
+
+    win_Main.Center
     win_Main.Activate
 
   ELSE
@@ -222,40 +246,6 @@ PROCEDURE Main()
 
 RETURN
 *-----------------------------------------------------------------------------*
-
-
-#IFDEF _HMG_2_
-*-----------------------------------------------------------------------------*
-PROCEDURE MoveActiveWindow( hWnd , cForm )
-*-----------------------------------------------------------------------------*
-
-  LOCAL nMouseRow := GetCursorRow()
-  LOCAL nMouseCol := GetCursorCol()
-  LOCAL nFormRow  := GetProperty( cForm , 'Row' ) 
-  
-  DEFAULT hWnd := GetActiveWindow()
-
-
-  IF nMouseRow >= nFormRow .AND. nMouseRow <= ( nFormRow + 32 )
-
-    PostMessage( hWnd , WM_NCLBUTTONDOWN , HTCAPTION , 0 )
-
-    do_events()
-
-    nAPPRow := GetProperty( cForm , 'Row' )
-    nAPPCol := GetProperty( cForm , 'Col' )
-
-    do_events()
-
-  ELSE
-
-
-  ENDIF 
-
-
-RETURN
-*-----------------------------------------------------------------------------*
-#ENDIF
 
 
 #IFDEF _HMG_2_

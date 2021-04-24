@@ -25,8 +25,10 @@ call %MG_ROOT%\batch\compile.bat EndOfProgram          /nl %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat GetDateFile           /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat SetNavigation         /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ViewData              /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat MoveActiveWindow      /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat test                  /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 
-call %MG_ROOT%\batch\compile.bat eib_hmg /lo /b ctklib /b About /b ClearRecords /b csv2Memeory /b DataBaseInit /b DeleteQuote /b Download /b download_csv /b DownloadQuestion /b EndOfProgram /b GetDateFile /b SetNavigation /b ViewData /r eib_hmg /nx %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat eib_hmg /lo /b ctklib /b test /b About /b ClearRecords /b csv2Memeory /b DataBaseInit /b DeleteQuote /b Download /b download_csv /b DownloadQuestion /b EndOfProgram /b GetDateFile /b SetNavigation /b ViewData /b MoveActiveWindow /r eib_hmg /nx %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 call %MG_ROOT%\batch\compile.bat eib_hmg               /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ctklib                /do %1 %2 %3 %4 %5 %6 %7 %8 %9
@@ -42,6 +44,8 @@ call %MG_ROOT%\batch\compile.bat EndOfProgram          /do %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat GetDateFile           /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat SetNavigation         /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ViewData              /do %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat MoveActiveWindow      /do %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat test                  /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 IF NOT EXIST eib_hmg.exe goto :END
 IF NOT EXIST c:\upx-win32\upx.exe goto :END

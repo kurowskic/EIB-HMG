@@ -12,3 +12,5 @@ EndOfProgram.prg
 GetDateFile.prg
 SetNavigation.prg
 ViewData.prg
+MoveActiveWindow.prg
+test.prg

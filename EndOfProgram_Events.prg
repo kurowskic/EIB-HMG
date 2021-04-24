@@ -1,5 +1,5 @@
 *-----------------------------------------------------------------------------*
-PROCEDURE EndOfProgram_btn_YES()
+PROCEDURE win_EndOfProgram_btn_YES()
 *-----------------------------------------------------------------------------*
 
   RELEASE WINDOW ALL
@@ -9,39 +9,55 @@ RETURN
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE EndOfProgram_btn_NOT()
+PROCEDURE win_EndOfProgram_btn_NOT()
 *-----------------------------------------------------------------------------*
 
   ViewData( nPage )
-
 
   aFrm := CTK_Release( aFrm )
 
   ThisWindow.Release
 
-
 RETURN
 *-----------------------------------------------------------------------------*
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE EndOfProgram_OnInit()
+PROCEDURE win_EndOfProgram_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-  CTK_DrawBorder( "win_EndOfProgram" )
-
-  DO_Events()
-
-RETURN
-*-----------------------------------------------------------------------------*
-
-
-*-----------------------------------------------------------------------------*
-PROCEDURE EndOfProgram_OnGotFocus()
-*-----------------------------------------------------------------------------*
-
-  afrm := CTK_Restore( aFrm )
  
+#IFDEF _HMG_3_
+
+  do_events()
+
+
+  IF  .NOT. EMPTY ( aFrm[ 1 , 2 ] )
+  
+    win_EndOfProgram.Row := (  APP_ROW + ( APP_HEIGHT - win_EndOfProgram.Height ) / 2 )
+	
+  ELSE
+  
+      win_EndOfProgram.Row := ( ( APP_HEIGHT - win_EndOfProgram.Height ) / 2 )
+  ENDIF
+
+
+  IF  .NOT. EMPTY( aFrm[ 1 , 3 ] )
+ 
+    win_EndOfProgram.Col := ( APP_COL + ( APP_WIDTH - win_EndOfProgram.Width ) / 2 ) 
+	
+  ELSE
+  
+    win_EndOfProgram.Col := ( ( APP_WIDTH - win_EndOfProgram.Width ) / 2 )
+
+  ENDIF
+
+
+  do_events()
+	
+#ENDIF 
+
+
 RETURN
 *-----------------------------------------------------------------------------*
 

@@ -119,21 +119,26 @@ FUNCTION CTK_Release( xaFrm )
 
   nFrm := LEN( xaFrm )
 
-  xaFrm[ nFrm , 1 ] := NIL
+
+  IF nFrm > 1
+
+    xaFrm[ nFrm , 1 ] := NIL
 
 
-  FOR nI := 1 TO nFrm
+    FOR nI := 1 TO nFrm
 
 
-    IF xaFrm[ nI , 1 ] <> NIL
+      IF xaFrm[ nI , 1 ] <> NIL
 
-      AADD( aLocal , { xaFrm[ nI , 1 ] , xaFrm[ nI , 2 ] , xaFrm[ nI , 3 ] } )
+        AADD( aLocal , { xaFrm[ nI , 1 ] , xaFrm[ nI , 2 ] , xaFrm[ nI , 3 ] } )
 
-    ENDIF
+      ENDIF
 
 
-  NEXT I
+    NEXT I
 
+
+  ENDIF
 
 
 RETURN aLocal
@@ -150,18 +155,30 @@ FUNCTION CTK_Restore( xaFrm )
   nFrm := LEN( xaFrm ) 
 
 
-  FOR nI := 1 TO nFrm - 1
+  IF nFrm > 1
+
+    FOR nI := 1 TO nFrm - 1
+
+      SetProperty( xaFrm[ nI , 1 ] , 'Row' , xaFrm[ nI , 2 ] )
+      SetProperty( xaFrm[ nI , 1 ] , 'Col' , xaFrm[ nI , 3 ] )
+
+    NEXT nI
+
 
     SetProperty( xaFrm[ nI , 1 ] , 'Row' , xaFrm[ nI , 2 ] )
     SetProperty( xaFrm[ nI , 1 ] , 'Col' , xaFrm[ nI , 3 ] )
 
-  NEXT nI
+    DoMethod ( xaFrm[ nFrm , 1 ] , 'SetFocus' )
+
+  ENDIF
 
 
-  SetProperty( xaFrm[ nI , 1 ] , 'Row' , xaFrm[ nI , 2 ] )
-  SetProperty( xaFrm[ nI , 1 ] , 'Col' , xaFrm[ nI , 3 ] )
+  do_events()
 
-  DoMethod ( xaFrm[ nFrm , 1 ] , 'SetFocus' )
+  aFrm[ 1 , 2 ] := APP_ROW
+  aFrm[ 1 , 3 ] := APP_COL
+
+  do_events()
 
 
 RETURN xaFrm

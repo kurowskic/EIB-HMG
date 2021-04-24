@@ -22,15 +22,11 @@ PROCEDURE win_main_OnInit()
 #ENDIF
 
 
-#IFDEF _HMG_2_
-
   IF LEN( aDataBase ) == 0
 
-    DownloadQuestion() 
+    DownloadQuestion( "Brak danych" ) 
 
   ENDIF
-
-#ENDIF
 
 
 RETURN
@@ -51,8 +47,16 @@ RETURN
 PROCEDURE win_Main_btn_DownloadCSV_Action()
 *-----------------------------------------------------------------------------*
 
-  download()
-  DataBaseInit()
+  IF LEN( aDataBase ) == 0
+  
+    DownloadQuestion( "Brak danych" )
+	
+  ELSE
+  
+    DownloadQuestion( "Aktualiazja danych" )
+  
+  ENDIF 
+
 
 RETURN
 *-----------------------------------------------------------------------------*

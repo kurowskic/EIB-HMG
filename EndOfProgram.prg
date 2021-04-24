@@ -27,7 +27,6 @@ PROCEDURE EndOfProgram()
 
 
   DECLARE WINDOW win_Main
-
   DECLARE WINDOW win_EndOfProgram
 
 
@@ -42,9 +41,6 @@ PROCEDURE EndOfProgram()
     win_EndOfProgram.SysMenu  := .T.
     win_EndOfProgram.Sizable  := .F.
 
-    SetProperty( "win_EndOfProgram" , "btn_YES" , "Action" , { || EndOfProgram_btn_YES() } )
-    SetProperty( "win_EndOfProgram" , "btn_NOT" , "Action" , { || EndOfProgram_btn_NOT() } )
-
 #ENDIF
 
 
@@ -55,16 +51,31 @@ PROCEDURE EndOfProgram()
 #ENDIF
 
 
-  AADD( aFrm , { "win_EndOfProgram"    , ;
+    SetProperty( "win_EndOfProgram" , "btn_YES" , "Action" , { || win_EndOfProgram_btn_YES() } )
+    SetProperty( "win_EndOfProgram" , "btn_NOT" , "Action" , { || win_EndOfProgram_btn_NOT() } )
+
+    ON KEY ALT+F4 OF win_EndOfProgram ACTION { || NIL }
+
+
+#IFDEF _HMG_2_
+
+    win_EndOfProgram.Row := ( APP_ROW + ( APP_HEIGHT - win_EndOfProgram.Height ) / 2 )
+    win_EndOfProgram.Col := ( APP_COL + ( APP_WIDTH  - win_EndOfProgram.Width  ) / 2 )
+
+#ENDIF
+
+
+    AADD( aFrm , { "win_EndOfProgram"    , ;
                  win_EndOfProgram.Row  , ;
                  win_EndOfProgram.Col  , ;
                } )
 
-  ON KEY ALT+F4 OF win_EndOfProgram ACTION { || NIL }
 
-  CTK_DrawBorder( "win_EndOfProgram" )
+    win_EndOfProgram.img_APPTitle.Picture  := "APP_MAIN"
 
-  win_EndOfProgram.Activate
+    CTK_DrawBorder( "win_EndOfProgram" )
+
+    win_EndOfProgram.Activate
 
   ENDIF
 

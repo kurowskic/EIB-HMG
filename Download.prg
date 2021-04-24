@@ -29,7 +29,6 @@ PROCEDURE Download()
 
 
   DECLARE WINDOW win_Main
-
   DECLARE WINDOW win_Download
 
 
@@ -39,7 +38,6 @@ PROCEDURE Download()
 #IFDEF _HMG_2_
 
     LOAD WINDOW download2 AS win_Download
-
 
     win_Download.TitleBar := .F.
     win_Download.SysMenu  := .T.
@@ -59,8 +57,16 @@ PROCEDURE Download()
 
     SetProperty( "win_Download", "lbl_1"    ,"Value"   , "Pobieranie danych..." )
 
-
     ON KEY ALT+F4 OF win_Download ACTION { || NIL }
+
+
+#IFDEF _HMG_2_
+
+    win_Download.Row := ( APP_ROW + ( APP_HEIGHT - win_Download.Height ) / 2 )
+    win_Download.Col := ( APP_COL + ( APP_WIDTH  - win_Download.Width  ) / 2 )
+
+#ENDIF
+
 
     AADD( aFrm , { "win_Download" , win_Download.Row, win_Download.Col } )
 
