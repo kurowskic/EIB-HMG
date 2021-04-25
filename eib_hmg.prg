@@ -227,7 +227,7 @@ PROCEDURE Main()
     SetProperty( "win_Main" , "btn_ExitPR" , "Action" , { || win_main_btn_ExitPr() } )
     SetProperty( "win_Main" , "btn_MinPR"  , "Action" , { || win_main_btn_MinPr()  } )
 
-    win_Main.img_APPTitle.Picture    := 'APP_MAIN'
+ //   win_Main.img_APPTitle.Picture    := 'APP_MAIN'
 
     win_Main.btn_About.Picture       := 'APP_INFO_20'   
     win_Main.btn_DownloadCSV.Picture := 'APP_DOWN_20'   

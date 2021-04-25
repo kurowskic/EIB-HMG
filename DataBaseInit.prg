@@ -21,8 +21,20 @@ PROCEDURE DataBaseInit()
     )
 
 
+#IFDEF _HMG_2_
+
   win_Main.lbl_Counter.Value := STR( LEN( aDataBase ) )
   win_Main.lbl_Date.Value    := GetDateFile()
+
+#ENDIF
+
+
+#IFDEF _HMG_3_
+
+  Show_TitleBar()
+  
+#ENDIF
+
 
   nPage := 1
 
