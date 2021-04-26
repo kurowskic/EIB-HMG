@@ -54,8 +54,8 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
 
      DEFINE LABEL lbl_Date
             ROW    2
-            COL    820
-            WIDTH  350
+            COL    850
+            WIDTH  450
             HEIGHT 32
             VALUE ""
             FONTNAME fCOURIER
@@ -63,11 +63,11 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             BACKCOLOR { 000 , 085 , 229 }
             FONTCOLOR { 000 , 000 , 000 }
             VCENTERALIGN .T.
-            RIGHTALIGN .F.
+            RIGHTALIGN .T.
             ACTION MoveActiveWindow( , "win_Main" )
      END LABEL  
 
-     DEFINE BUTTON btn_Test
+     DEFINE BUTTON btn_DownloadCSV
             ROW    2
             COL    1340
             WIDTH  32
@@ -76,10 +76,10 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fARIAL
             FONTSIZE 10
             PICTURE ""
-            ACTION win_Main_btn_Test_Action()
-     END BUTTON  
+            ACTION win_Main_btn_DownloadCSV_Action()
+     END BUTTON 
 
-     DEFINE BUTTON btn_DownloadCSV
+     DEFINE BUTTON btn_Center
             ROW    2
             COL    1380
             WIDTH  32
@@ -88,8 +88,8 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fARIAL
             FONTSIZE 10
             PICTURE ""
-            ACTION win_Main_btn_DownloadCSV_Action()
-     END BUTTON  
+            ACTION win_Main_btn_Center_Action()
+     END BUTTON   
 
      DEFINE BUTTON btn_About
             ROW    2

@@ -11,6 +11,15 @@ PROCEDURE win_DDownloadQuestion_btn_YES()
   Download()
   DataBaseInit()
 
+
+#IFDEF _HMG_3_
+
+  win_Main.Hide
+  win_Main.Show
+
+#ENDIF
+
+
   aFrm := CTK_Release( aFrm )
 
   ThisWindow.Release

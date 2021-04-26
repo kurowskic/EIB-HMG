@@ -21,7 +21,7 @@ PROCEDURE download_csv()
   win_Download.prb_1.Value := 10
 
 
-  cFile := GetCurrentFolder() + "\lesp.csv"
+  cFile := GetTempFolder() + "\lesp.csv"
 
   oHTTPS := CreateObject("Microsoft.XMLHTTP")
 
