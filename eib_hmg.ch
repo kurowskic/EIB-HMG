@@ -25,7 +25,6 @@
 #DEFINE  _OLD_DB3_   '000'
 
 
-
 #DEFINE NAZWA_PR     "Elektroniczne Skrzynki Podawcze"
 
 #DEFINE WERSJA_PR    _PRG1_+"."+_PRG2_+"."+_PRG3_ // +"."+_PRG4_
@@ -52,7 +51,6 @@
   #include "i_UsrSOOP.ch"
 
   #include "hbinkey.ch"
-
 
 #ENDIF
 
@@ -102,7 +100,6 @@ MEMVAR APP_COL
 MEMVAR APP_HEIGHT
 MEMVAR APP_WIDTH
 MEMVAR aFrm
-
 
 *-----------------------------------------------------------------------------*
 *-----------------------------------------------------------------------------*
