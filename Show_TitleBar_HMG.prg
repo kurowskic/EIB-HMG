@@ -16,10 +16,6 @@ PROCEDURE Show_TitleBar()
   
   LOCAL hBMP
 
-//  LOCAL nWidth  := BT_ClientAreaWidth  ( "win_Main" )
-//  LOCAL nHeight := BT_ClientAreaHeight ( "win_Main" )
-
-
   hDC = BT_CreateDC( "win_Main" , BT_HDC_INVALIDCLIENTAREA , @BTstruct )
 
   nTypeText    := BT_TEXT_TRANSPARENT

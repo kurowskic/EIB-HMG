@@ -16,7 +16,7 @@ FUNCTION GetDateFile()
   aFileInfo := {}
 
 
-  cFile := GetCurrentFolder() + "\lesp.csv"
+  cFile := GetTempFolder() + "\lesp.csv"
 
 
   IF FILE ( cFile )
