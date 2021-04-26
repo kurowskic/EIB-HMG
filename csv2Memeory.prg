@@ -22,7 +22,7 @@ PROCEDURE csv2Memeory( xcName , xcAddress , xcPlace )
 
   MEMVAR aDataBase
 
-  cFile := GetCurrentFolder() + "\lesp.csv"
+  cFile := GetTempFolder() + "\lesp.csv"
 
   aDataBase := {}
 
