@@ -2,24 +2,18 @@
 PROCEDURE win_main_OnInit()
 *-----------------------------------------------------------------------------*
 
+  win_Main.Hide
+  
+  CenterMainWindow()
+ 
   CTK_DrawBorder( "win_Main" )
+  
+  win_Main.Show
 
   DO_Events()
 
+
   DataBaseInit()
-
-
-#IFDEF _HMG_3_
-
-  win_Main.Hide
-
-  aFrm := CTK_Minimize( aFrm )
-
-  win_Main.Restore
-
-  win_Main.Show
-
-#ENDIF
 
 
   IF LEN( aDataBase ) == 0
@@ -45,6 +39,16 @@ PROCEDURE win_main_OnPaint()
 RETURN
 *-----------------------------------------------------------------------------*
 #ENDIF
+
+
+*-----------------------------------------------------------------------------*
+PROCEDURE win_Main_btn_Center_Action()
+*-----------------------------------------------------------------------------*
+
+  CenterMainWindow()
+
+RETURN
+*-----------------------------------------------------------------------------*
 
 
 *-----------------------------------------------------------------------------*

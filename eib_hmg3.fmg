@@ -106,6 +106,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
         FONTCOLOR { 000 , 000 , 000 }
     END LABEL
 */
+/*
      DEFINE BUTTON btn_Test
             ROW    2
             COL    1340
@@ -117,11 +118,10 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
             PICTURE Nil
             ACTION win_Main_btn_Test_Action()
      END BUTTON  
-
-
+*/	 
     DEFINE BUTTON btn_DownloadCSV
         ROW    2
-        COL    1380
+        COL    1340
         WIDTH  32
         HEIGHT 32
         ACTION win_Main_btn_DownloadCSV_Action()
@@ -142,6 +142,32 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
         TRANSPARENT .F.
         MULTILINE .F.
         PICTURE "APP_DOWN_20"
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE BUTTON btn_Center
+        ROW    2
+        COL    1380
+        WIDTH  32
+        HEIGHT 32
+        ACTION win_Main_btn_Center_Action()
+        CAPTION Nil
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE "APP_CENT_20"
         PICTALIGNMENT TOP
     END BUTTON
 
