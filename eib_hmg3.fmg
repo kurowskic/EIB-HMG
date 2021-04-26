@@ -86,7 +86,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
 
     DEFINE LABEL lbl_Date
         ROW    2
-        COL    820
+        COL    850
         WIDTH  450
         HEIGHT 32
         VALUE ""

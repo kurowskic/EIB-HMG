@@ -23,10 +23,19 @@ PROCEDURE Show_TitleBar()
   nOrientation := 0
 
   BT_DrawText ( hDC , 2 , 45 , NAZWA_PR , fARIAL , 20 , WHITE , BLUE , nTypeText , nAlingText , nOrientation )
-  
-  BT_DrawText ( hDC , 2 , 540 , STR( LEN( aDataBase ) ) , fCOURIER , 20 , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
 
-  BT_DrawText ( hDC , 2 , 820 , GetDateFile() , fCOURIER , 20 , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
+
+  IF LEN( aDataBase ) > 0
+  
+    BT_DrawText ( hDC , 2 , 540 , STR( LEN( aDataBase ) ) , fCOURIER , 20 , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
+    BT_DrawText ( hDC , 2 , 820 , GetDateFile() , fCOURIER , 20 , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
+
+  ELSE
+  
+    BT_DrawText ( hDC , 2 , 540 , "" , fCOURIER , 20 , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
+    BT_DrawText ( hDC , 2 , 820 , "Brak danych. Pobierz dane --->>>" , fCOURIER , 20 , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
+  
+  ENDIF
 
 
   hBMP :=  BT_BitmapLoadFile ( "APP_MAIN" )
