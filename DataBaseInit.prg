@@ -23,8 +23,19 @@ PROCEDURE DataBaseInit()
 
 #IFDEF _HMG_2_
 
-  win_Main.lbl_Counter.Value := STR( LEN( aDataBase ) )
-  win_Main.lbl_Date.Value    := GetDateFile()
+
+  IF LEN( aDataBase ) > 0
+  
+    win_Main.lbl_Counter.Value := STR( LEN( aDataBase ) )
+    win_Main.lbl_Date.Value    := GetDateFile()
+  
+  ELSE
+  
+    win_Main.lbl_Counter.Value := ""
+    win_Main.lbl_Date.Value    := "Brak danych. Pobierz dane --->>>"
+
+  ENDIF
+  
 
 #ENDIF
 
@@ -32,6 +43,8 @@ PROCEDURE DataBaseInit()
 #IFDEF _HMG_3_
 
   Show_TitleBar()
+  win_Main.Hide
+  win_Main.Show
   
 #ENDIF
 
