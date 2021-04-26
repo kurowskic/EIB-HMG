@@ -55,7 +55,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
      DEFINE LABEL lbl_Date
             ROW    2
             COL    850
-            WIDTH  440
+            WIDTH  450
             HEIGHT 32
             VALUE ""
             FONTNAME fCOURIER
