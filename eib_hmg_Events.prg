@@ -33,6 +33,20 @@ RETURN
 *-----------------------------------------------------------------------------*
 
 
+#IFDEF _HMG_3_
+*-----------------------------------------------------------------------------*
+PROCEDURE win_main_OnPaint()
+*-----------------------------------------------------------------------------*
+  
+  Show_TitleBar()
+  
+  DO_Events()
+		
+RETURN
+*-----------------------------------------------------------------------------*
+#ENDIF
+
+
 *-----------------------------------------------------------------------------*
 PROCEDURE win_Main_btn_About_Action()
 *-----------------------------------------------------------------------------*
@@ -127,7 +141,7 @@ PROCEDURE win_Main_lbl_Name_Action()
   win_Main.txb_Name.Value := ""
 
   do_events()
-  win_Main.lbl_APPTitle.Setfocus()
+  win_Main.lbl_BackGround.Setfocus()
 
   ViewData( nPage )
 
@@ -166,7 +180,7 @@ PROCEDURE win_Main_lbl_Address_Action()
   win_Main.txb_Address.Value := ""
 
   do_events()
-  win_Main.lbl_APPTitle.Setfocus()
+  win_Main.lbl_BackGround.Setfocus()
 
   ViewData( nPage )
 
@@ -205,7 +219,7 @@ PROCEDURE win_Main_lbl_Place_Action()
   win_Main.txb_Place.Value := ""
 
   do_events()
-  win_Main.lbl_APPTitle.Setfocus()
+  win_Main.lbl_BackGround.Setfocus()
 
   ViewData( nPage )
 
@@ -264,6 +278,8 @@ PROCEDURE win_Main_lbl_First_Action()
 
   MEMVAR nPage
 
+  win_Main.lbl_BackGround.Setfocus()
+
   nPage := 1
 
   ViewData( nPage )
@@ -299,6 +315,9 @@ PROCEDURE win_Main_lbl_Prior_Action()
 *-----------------------------------------------------------------------------*
 
   MEMVAR nPage
+
+  win_Main.lbl_BackGround.Setfocus()
+
 
   IF nPage - 1 > 0
 
@@ -342,6 +361,7 @@ PROCEDURE win_Main_lbl_Next_Action()
   MEMVAR aDataBase
   MEMVAR nPage
 
+  win_Main.lbl_BackGround.Setfocus()
 
 
   IF nPage + 1 < ( ( INT ( LEN( aDataBase ) / 5 ) ) + 1 ) + 1
@@ -386,6 +406,8 @@ PROCEDURE win_Main_lbl_Last_Action()
   MEMVAR aDataBase
   MEMVAR nPage
 
+  win_Main.lbl_BackGround.Setfocus()
+  
 
   IF INT ( LEN( aDataBase ) / 5 ) == ( LEN( aDataBase ) / 5 )
 

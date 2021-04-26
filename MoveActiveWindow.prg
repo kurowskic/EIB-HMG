@@ -26,7 +26,7 @@ PROCEDURE MoveActiveWindow( hWnd , cForm )
   DECLARE WINDOW win_Main
 
 
-  IF nMouseRow >= nFormRow .AND. nMouseRow <= ( nFormRow + 50 - 1 )
+  IF nMouseRow >= nFormRow .AND. nMouseRow <= ( nFormRow + 80 - 1 )
 
     IF nFormCol >=  0
 

@@ -13,4 +13,5 @@ GetDateFile.prg
 SetNavigation.prg
 ViewData.prg
 MoveActiveWindow.prg
+Show_TitleBar_HMG.prg
 test.prg
