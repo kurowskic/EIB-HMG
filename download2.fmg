@@ -49,12 +49,12 @@ DEFINE WINDOW TEMPLATE AT 269 , 413 WIDTH 682 HEIGHT 384 MODAL NOSIZE NOSYSMENU 
 
      DEFINE LABEL lbl_0
             ROW    50
-            COL    50
-            WIDTH  615
-            HEIGHT 32
-            VALUE "lbl_0"
-            FONTNAME fTIMES
-            FONTSIZE 18
+            COL    10
+            WIDTH  655
+            HEIGHT 80
+            VALUE ""
+            FONTNAME fARIAL
+            FONTSIZE 24
             FONTBOLD .T.
             CENTERALIGN .T.
      END LABEL  
