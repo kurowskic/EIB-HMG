@@ -3,7 +3,7 @@
 *-----------------------------------------------------------------------------*
 
 #DEFINE  _PRG1_      '0'
-#DEFINE  _PRG2_      '08'
+#DEFINE  _PRG2_      '10'
 #DEFINE  _PRG3_      '000'
 
 #DEFINE  _PRG4_      '001'
@@ -15,7 +15,7 @@
 
 
 #DEFINE  _OLD_PRG1_  '0'
-#DEFINE  _OLD_PRG2_  '05'
+#DEFINE  _OLD_PRG2_  '08'
 #DEFINE  _OLD_PRG3_  '000'
 
 #DEFINE  _OLD_PRG4_  '000'

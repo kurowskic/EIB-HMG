@@ -78,12 +78,12 @@ DEFINE WINDOW TEMPLATE AT 269 , 413 WIDTH 682 HEIGHT 384 VIRTUAL WIDTH Nil VIRTU
 
     DEFINE LABEL lbl_0
         ROW    50
-        COL    50
-        WIDTH  615
-        HEIGHT 32
-        VALUE "lbl_0"
-        FONTNAME fTIMES
-        FONTSIZE 18
+        COL    10
+        WIDTH  655
+        HEIGHT 80
+        VALUE ""
+        FONTNAME fARIAL
+        FONTSIZE 24
         TOOLTIP ""
         FONTBOLD .T.
         FONTITALIC .F.
@@ -104,7 +104,7 @@ DEFINE WINDOW TEMPLATE AT 269 , 413 WIDTH 682 HEIGHT 384 VIRTUAL WIDTH Nil VIRTU
         COL    10
         WIDTH  655
         HEIGHT 80
-        VALUE "lbl_1"
+        VALUE ""
         FONTNAME fARIAL
         FONTSIZE 24
         TOOLTIP ""
