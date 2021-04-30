@@ -40,7 +40,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
      DEFINE LABEL lbl_Counter
             ROW    2
             COL    540
-            WIDTH  150
+            WIDTH  170
             HEIGHT 32
             VALUE ""
             FONTNAME fCOURIER
@@ -48,14 +48,14 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             BACKCOLOR { 000 , 085 , 229 }
             FONTCOLOR { 000 , 000 , 000 }
             VCENTERALIGN .T.
-            RIGHTALIGN .T. 
+            RIGHTALIGN .F. 
             ACTION MoveActiveWindow( , "win_Main" )
      END LABEL  
 
      DEFINE LABEL lbl_Date
             ROW    2
-            COL    850
-            WIDTH  450
+            COL    820
+            WIDTH  510
             HEIGHT 32
             VALUE ""
             FONTNAME fCOURIER
@@ -63,7 +63,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             BACKCOLOR { 000 , 085 , 229 }
             FONTCOLOR { 000 , 000 , 000 }
             VCENTERALIGN .T.
-            RIGHTALIGN .T.
+            RIGHTALIGN .F.
             ACTION MoveActiveWindow( , "win_Main" )
      END LABEL  
 

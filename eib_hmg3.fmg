@@ -65,7 +65,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
     DEFINE LABEL lbl_Counter
         ROW    2
         COL    540
-        WIDTH  250
+        WIDTH  170
         HEIGHT 32
         VALUE ""
         FONTNAME fCOURIER
@@ -86,8 +86,8 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
 
     DEFINE LABEL lbl_Date
         ROW    2
-        COL    850
-        WIDTH  450
+        COL    820
+        WIDTH  510
         HEIGHT 32
         VALUE ""
         FONTNAME fCOURIER

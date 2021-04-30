@@ -22,7 +22,7 @@ PROCEDURE Show_TitleBar()
   nAlingText   := BT_TEXT_LEFT + BT_TEXT_TOP
   nOrientation := 0
 
-  BT_DrawText ( hDC , 2 , 45 , NAZWA_PR , fARIAL , 20 , WHITE , BLUE , nTypeText , nAlingText , nOrientation )
+  BT_DrawText ( hDC , 2 , 45 , NAZWA_PR , fARIAL , 20+1 , WHITE , BLUE , nTypeText , nAlingText , nOrientation )
 
 
   IF LEN( aDataBase ) > 0
