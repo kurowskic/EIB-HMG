@@ -106,6 +106,14 @@ PROCEDURE Main()
 
   DO CASE
 
+    CASE "Windows 10" $ OS()
+
+      fARIAL   := 'Arial'
+      fCOURIER := 'Courier New'
+      fTAHOMA  := 'Tahoma'
+      fTIMES   := 'Times New Roman'
+      fCALIBRI := 'Calibri'
+
     CASE "Windows NT 10" $ OS()
 
       fARIAL   := 'Arial'
@@ -142,7 +150,7 @@ PROCEDURE Main()
       fARIAL   := 'Arial CE'
       fCOURIER := 'Courier New CE'
       fTAHOMA  := 'Times New Roman CE'
-      fTimes   := 'Times New Roman CE'
+      fTIMES   := 'Times New Roman CE'
       fCALIBRI := 'Times New Roman CE'
 
     CASE "Windows 98" $ OS()
@@ -150,7 +158,7 @@ PROCEDURE Main()
       fARIAL   := 'Arial'
       fCOURIER := 'Courier New'
       fTAHOMA  := 'Tahoma'
-      fTimes   := 'Times New Roman'
+      fTIMES   := 'Times New Roman'
       fCALIBRI := 'Times New Roman'
 
   END CASE
@@ -214,6 +222,14 @@ PROCEDURE Main()
     win_Main.Sizable  := .F.
 
 #ENDIF
+
+
+#IFDEF _HMG_3_
+
+    win_Main.Title := NAZWA_PR
+
+#ENDIF
+
 
     APP_ROW    := win_Main.Row
     APP_COL    := win_Main.Col
