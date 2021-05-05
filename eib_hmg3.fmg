@@ -121,7 +121,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
 */	 
     DEFINE BUTTON btn_DownloadCSV
         ROW    2
-        COL    1340
+        COL    1330
         WIDTH  32
         HEIGHT 32
         ACTION win_Main_btn_DownloadCSV_Action()
@@ -145,35 +145,9 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
         PICTALIGNMENT TOP
     END BUTTON
 
-    DEFINE BUTTON btn_Center
-        ROW    2
-        COL    1380
-        WIDTH  32
-        HEIGHT 32
-        ACTION win_Main_btn_Center_Action()
-        CAPTION Nil
-        FONTNAME fARIAL
-        FONTSIZE 10
-        TOOLTIP ""
-        FONTBOLD .F.
-        FONTITALIC .F.
-        FONTUNDERLINE .F.
-        FONTSTRIKEOUT .F.
-        ONGOTFOCUS Nil
-        ONLOSTFOCUS Nil
-        HELPID Nil
-        FLAT .F.
-        TABSTOP .T.
-        VISIBLE .T.
-        TRANSPARENT .F.
-        MULTILINE .F.
-        PICTURE "APP_CENT_20"
-        PICTALIGNMENT TOP
-    END BUTTON
-
     DEFINE BUTTON btn_About
         ROW    2
-        COL    1430
+        COL    1365
         WIDTH  32
         HEIGHT 32
         ACTION win_Main_btn_About_Action()
@@ -197,9 +171,35 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
         PICTALIGNMENT TOP
     END BUTTON  
 
+    DEFINE BUTTON btn_Center
+        ROW    2
+        COL    1400
+        WIDTH  32
+        HEIGHT 32
+        ACTION win_Main_btn_Center_Action()
+        CAPTION Nil
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE "APP_CENT_20"
+        PICTALIGNMENT TOP
+    END BUTTON
+
     DEFINE BUTTON btn_MinPR
         ROW    2
-        COL    1470
+        COL    1435
         WIDTH  32
         HEIGHT 32
         ACTION win_Main_btn_MinPR()
@@ -220,6 +220,32 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
         TRANSPARENT .F.
         MULTILINE .F.
         PICTURE "APP_MINI_20"
+        PICTALIGNMENT TOP
+    END BUTTON
+
+    DEFINE BUTTON btn_Max
+        ROW    2
+        COL    1470
+        WIDTH  32
+        HEIGHT 32
+        ACTION win_Main_btn_Max_Action()
+        CAPTION Nil
+        FONTNAME fARIAL
+        FONTSIZE 10
+        TOOLTIP ""
+        FONTBOLD .F.
+        FONTITALIC .F.
+        FONTUNDERLINE .F.
+        FONTSTRIKEOUT .F.
+        ONGOTFOCUS Nil
+        ONLOSTFOCUS Nil
+        HELPID Nil
+        FLAT .F.
+        TABSTOP .T.
+        VISIBLE .T.
+        TRANSPARENT .F.
+        MULTILINE .F.
+        PICTURE "APP_MAXI_20"
         PICTALIGNMENT TOP
     END BUTTON
 
@@ -512,7 +538,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 VIRTUAL WIDTH Nil VIRTUAL 
         WIDTH  1500
         HEIGHT 95
         FONTNAME fARIAL
-        FONTSIZE 9
+        FONTSIZE 1
         FONTBOLD .F.
         FONTITALIC .F.
         FONTUNDERLINE .F.

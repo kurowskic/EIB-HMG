@@ -1,5 +1,6 @@
 eib_hmg.prg
 About.prg
+AutoAdjustControls.prg
 ClearRecords.prg
 csv2Memeory.prg
 ctklib.prg
@@ -15,4 +16,5 @@ ViewData.prg
 MoveActiveWindow.prg
 Show_TitleBar_HMG.prg
 CenterMainWindow.prg
+CenterModalWindow.prg
 test.prg

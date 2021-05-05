@@ -8,16 +8,6 @@ PROCEDURE About_btn_OK()
 
   ThisWindow.Release
 
-
-RETURN
-*-----------------------------------------------------------------------------*
-
-
-*-----------------------------------------------------------------------------*
-PROCEDURE About_OnInit()
-*-----------------------------------------------------------------------------*
-
-
 RETURN
 *-----------------------------------------------------------------------------*
 
@@ -26,34 +16,11 @@ RETURN
 PROCEDURE About_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-#IFDEF _HMG_3_
+  CenterModalWindow( "win_About" )
 
-  do_events()
+  AutoAdjustControls( "win_About" )
 
-
-  IF  .NOT. EMPTY ( aFrm[ 1 , 2 ] )
-  
-    win_About.Row := (  APP_ROW + ( APP_HEIGHT - win_About.Height ) / 2 )
-	
-  ELSE
-  
-      win_About.Row := ( ( APP_HEIGHT - win_About.Height ) / 2 )
-  ENDIF
-
-
-  IF  .NOT. EMPTY( aFrm[ 1 , 3 ] )
- 
-    win_About.Col := ( APP_COL + ( APP_WIDTH - win_About.Width ) / 2 ) 
-	
-  ELSE
-  
-    win_About.Col := ( ( APP_WIDTH - win_About.Width ) / 2 )
-
-  ENDIF
-
-  do_events()
-	
-#ENDIF
+  CTK_DrawBorder( "win_About" )
  
 RETURN
 *-----------------------------------------------------------------------------*

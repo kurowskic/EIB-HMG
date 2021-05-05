@@ -7,42 +7,6 @@
 PROCEDURE About()
 *-----------------------------------------------------------------------------*
 
-  MEMVAR lbl_BackGround
-  MEMVAR img_APPTitle
-  MEMVAR lbl_APPTitle
-  MEMVAR btn_ExitPR
-  MEMVAR btn_MinPR
-  MEMVAR frm_Main
-  MEMVAR lbl_0
-  MEMVAR lbl_0_
-  MEMVAR lbl_1
-  MEMVAR lbl_2
-  MEMVAR lbl_3
-  MEMVAR lbl_4
-  MEMVAR lbl_5
-  MEMVAR lbl_6
-  MEMVAR lbl_7
-  MEMVAR btn_OK
-
-
-  PRIVATE lbl_BackGround
-  PRIVATE img_APPTitle
-  PRIVATE lbl_APPTitle
-  PRIVATE btn_ExitPR
-  PRIVATE btn_MinPR
-  PRIVATE frm_Main
-  PRIVATE lbl_0
-  PRIVATE lbl_0_
-  PRIVATE lbl_1
-  PRIVATE lbl_2
-  PRIVATE lbl_3
-  PRIVATE lbl_4
-  PRIVATE lbl_5
-  PRIVATE lbl_6
-  PRIVATE lbl_7
-  PRIVATE btn_OK
-
-
   DECLARE WINDOW win_Main
   DECLARE WINDOW win_About
 
@@ -109,19 +73,9 @@ PROCEDURE About()
     ON KEY ALT+F4 OF win_About ACTION { || NIL }
 
 
-#IFDEF _HMG_2_
-
-    win_About.Row := ( APP_ROW + ( APP_HEIGHT - win_About.Height ) / 2 )
-    win_About.Col := ( APP_COL + ( APP_WIDTH  - win_About.Width  ) / 2 )
-
-#ENDIF
-
-
     AADD( aFrm, { "win_About" , win_About.Row , win_About.Col } )
 
     win_About.img_APPTitle.Picture  := "APP_MAIN"
-
-    CTK_DrawBorder( "win_About" )
 
     win_About.Activate
 
