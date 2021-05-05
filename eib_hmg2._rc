@@ -3,11 +3,13 @@
 MAINICON            ICON   "resource\eib.ico"
 
 APP_MAIN            BITMAP "resource\eib.bmp"
-APP_CENT_20         BITMAP "resource\app_cent_20.bmp"
-APP_INFO_20         BITMAP "resource\app_info_20.bmp"
+
 APP_DOWN_20         BITMAP "resource\app_down_20.bmp"
-APP_EXIT_20         BITMAP "resource\app_exit_20.bmp"
+APP_INFO_20         BITMAP "resource\app_info_20.bmp"
+APP_CENT_20         BITMAP "resource\app_cent_20.bmp"
 APP_MINI_20         BITMAP "resource\app_mini_20.bmp"
+APP_MAXI_20         BITMAP "resource\app_maxi_20.bmp"
+APP_EXIT_20         BITMAP "resource\app_exit_20.bmp"
 
 1 VERSIONINFO
 FILEVERSION 0,9,0,0

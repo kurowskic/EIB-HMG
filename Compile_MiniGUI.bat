@@ -14,6 +14,7 @@ call %MG_ROOT%\batch\compile.bat eib_hmg /ro
 call %MG_ROOT%\batch\compile.bat eib_hmg               /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ctklib                /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat About                 /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat AutoAdjustControls    /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ClearRecords          /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat csv2Memeory           /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat DataBaseInit          /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
@@ -27,13 +28,15 @@ call %MG_ROOT%\batch\compile.bat SetNavigation         /nl %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat ViewData              /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat MoveActiveWindow      /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat CenterMainWindow      /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat CenterModalWindow     /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat test                  /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 
-call %MG_ROOT%\batch\compile.bat eib_hmg /lo /b ctklib /b test /b About /b ClearRecords /b csv2Memeory /b DataBaseInit /b DeleteQuote /b Download /b download_csv /b DownloadQuestion /b EndOfProgram /b GetDateFile /b SetNavigation /b ViewData /b MoveActiveWindow /b CenterMainWindow /r eib_hmg /nx %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat eib_hmg /lo /b ctklib /b test /b About /b AutoAdjustControls /b ClearRecords /b csv2Memeory /b DataBaseInit /b DeleteQuote /b Download /b download_csv /b DownloadQuestion /b EndOfProgram /b GetDateFile /b SetNavigation /b ViewData /b MoveActiveWindow /b CenterMainWindow /b CenterModalWindow /r eib_hmg /nx %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 call %MG_ROOT%\batch\compile.bat eib_hmg               /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ctklib                /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat About                 /do %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat AutoAdjustControls    /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ClearRecords          /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat csv2Memeory           /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat DataBaseInit          /do %1 %2 %3 %4 %5 %6 %7 %8 %9
@@ -47,6 +50,7 @@ call %MG_ROOT%\batch\compile.bat SetNavigation         /do %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat ViewData              /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat MoveActiveWindow      /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat CenterMainWindow      /do %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat CenterModalWindow     /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat test                  /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 IF NOT EXIST eib_hmg.exe goto :END

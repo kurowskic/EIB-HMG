@@ -4,10 +4,12 @@ PROCEDURE win_main_OnInit()
 
   win_Main.Hide
   
+  AutoAdjustControls( "win_Main" )
+
   CenterMainWindow()
- 
+
   CTK_DrawBorder( "win_Main" )
-  
+
   win_Main.Show
 
   DO_Events()
@@ -18,7 +20,7 @@ PROCEDURE win_main_OnInit()
 
   IF LEN( aDataBase ) == 0
 
-    DownloadQuestion( "Brak danych" ) 
+    DownloadQuestion( "Brak danych" )
 
   ENDIF
 
@@ -31,11 +33,10 @@ RETURN
 *-----------------------------------------------------------------------------*
 PROCEDURE win_main_OnPaint()
 *-----------------------------------------------------------------------------*
-  
+
   Show_TitleBar()
-  
   DO_Events()
-		
+
 RETURN
 *-----------------------------------------------------------------------------*
 #ENDIF
@@ -45,8 +46,100 @@ RETURN
 PROCEDURE win_Main_btn_Center_Action()
 *-----------------------------------------------------------------------------*
 
-  CenterMainWindow()
+  LOCAL nApp_Adjust_X
+  LOCAL nApp_Adjust_Y  
+  
+  nApp_Adjust_X :=   APP_ADJUST_X
+  nApp_Adjust_Y :=   APP_ADJUST_Y
 
+  
+  APP_ROW    :=    0
+  APP_COL    :=    0
+  APP_HEIGHT :=  824
+  APP_WIDTH  := 1536
+
+  APP_ADJUST_X := 1 / nApp_Adjust_X
+  APP_ADJUST_Y := 1	/ nApp_Adjust_Y
+
+  win_Main.Hide
+  DO_Events() 
+
+  AutoAdjustControls( "win_Main" )
+  DO_Events() 
+
+  APP_ADJUST_X := 1
+  APP_ADJUST_Y := 1	
+ 
+  SetProperty( 'win_Main' , 'Row'    , APP_ROW    * APP_ADJUST_Y )
+  SetProperty( 'win_Main' , 'Col'    , APP_COL    * APP_ADJUST_X )
+  SetProperty( 'win_Main' , 'Height' , APP_HEIGHT * APP_ADJUST_Y )
+  SetProperty( 'win_Main' , 'Width'  , APP_WIDTH  * APP_ADJUST_X )
+
+  DO_Events()
+  
+  CenterMainWindow()
+  
+  win_Main.btn_Max.Show  
+  win_Main.Show
+
+RETURN
+*-----------------------------------------------------------------------------*
+
+
+*-----------------------------------------------------------------------------*
+PROCEDURE win_Main_btn_Max_Action()
+*-----------------------------------------------------------------------------*
+
+  IF GetDesktopRealHeight() > GetProperty( "win_Main" , "Height" ) ;
+	.AND. ;
+	GetDesktopRealWidth() > GetProperty( "win_Main" , "Width" )
+		   
+    APP_ADJUST_Y :=  GetDesktopRealHeight() / win_Main.Height
+	SetProperty( "win_Main" , "Height" , GetProperty( "win_Main" , "Height" ) * APP_ADJUST_Y )
+	  
+    APP_ADJUST_X := GetDesktopRealWidth() / win_Main.Width
+    SetProperty( "win_Main" , "Width" , GetProperty( "win_Main" , "Width" ) * APP_ADJUST_X )
+	   
+    win_Main.btn_Max.Hide
+
+    win_Main.Hide
+	
+    DO_Events() 
+
+#IFDEF _HMG_2_
+	
+    ERASE WINDOW "win_Main"
+    DO_Events() 
+
+#ENDIF
+
+
+#IFDEF _HMG_3_
+
+    ERASE WINDOW win_Main
+    DO_Events() 
+
+#ENDIF
+
+
+    AutoAdjustControls( "win_Main" )
+    DO_Events() 
+	
+    CenterMainWindow()
+    DO_Events()
+  
+    APP_HEIGHT := win_Main.Height
+    APP_WIDTH  := win_Main.Width
+	
+    CTK_DrawBorder( "win_Main" )
+  
+    win_Main.Show
+
+    DO_Events()
+
+  ENDIF
+
+	
 RETURN
 *-----------------------------------------------------------------------------*
 
@@ -66,14 +159,14 @@ PROCEDURE win_Main_btn_DownloadCSV_Action()
 *-----------------------------------------------------------------------------*
 
   IF LEN( aDataBase ) == 0
-  
+
     DownloadQuestion( "Brak danych" )
-	
+
   ELSE
-  
+
     DownloadQuestion( "Aktualiazja danych" )
-  
-  ENDIF 
+
+  ENDIF
 
 
 RETURN
@@ -369,7 +462,7 @@ PROCEDURE win_Main_lbl_Next_Action()
 
 
   IF nPage + 1 < ( ( INT ( LEN( aDataBase ) / 5 ) ) + 1 ) + 1
-                     
+
     nPage++
 
   ENDIF
@@ -411,7 +504,7 @@ PROCEDURE win_Main_lbl_Last_Action()
   MEMVAR nPage
 
   win_Main.lbl_BackGround.Setfocus()
-  
+
 
   IF INT ( LEN( aDataBase ) / 5 ) == ( LEN( aDataBase ) / 5 )
 
@@ -421,7 +514,7 @@ PROCEDURE win_Main_lbl_Last_Action()
 
     nPage := ( ( INT ( LEN( aDataBase ) / 5 ) ) + 1 )
 
-  ENDIF                   
+  ENDIF
 
 
   ViewData( nPage )
@@ -456,7 +549,7 @@ RETURN
 PROCEDURE win_Main_lbl_EPUAP_Action()
 *-----------------------------------------------------------------------------*
 
-  ShellExecute ( 0 , "open" , "http://epuap.gov.pl" , , , 1 ) 
+  ShellExecute ( 0 , "open" , "http://epuap.gov.pl" , , , 1 )
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -466,7 +559,7 @@ RETURN
 PROCEDURE win_Main_lbl_csv_Action()
 *-----------------------------------------------------------------------------*
 
-  ShellExecute ( 0 , "open" , "https://epuap.gov.pl/LESP/LESP.csv" , , , 1 ) 
+  ShellExecute ( 0 , "open" , "https://epuap.gov.pl/LESP/LESP.csv" , , , 1 )
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -476,7 +569,7 @@ RETURN
 PROCEDURE win_Main_lbl_xml_Action()
 *-----------------------------------------------------------------------------*
 
-  ShellExecute ( 0 , "open" , "https://epuap.gov.pl/LESP/LESP.xml" , , , 1 ) 
+  ShellExecute ( 0 , "open" , "https://epuap.gov.pl/LESP/LESP.xml" , , , 1 )
 
 RETURN
 *-----------------------------------------------------------------------------*
