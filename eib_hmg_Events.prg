@@ -436,7 +436,7 @@ PROCEDURE win_Main_lbl_Find_Action()
 
   ViewData( nPage )
 
-#ELSE
+#ENDIF
 
 
 RETURN

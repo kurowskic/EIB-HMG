@@ -239,7 +239,12 @@ PROCEDURE Main()
 #ENDIF
 
 
+#IFDEF _HMG_2_
+
     win_Main.btn_test.Hide
+	
+#ENDIF
+
 
     DO CASE 
 	
