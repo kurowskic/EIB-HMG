@@ -18,11 +18,25 @@ PROCEDURE win_main_OnInit()
   DataBaseInit()
 
 
+#IFDEF __SQLITE__
+
+
+  IF DataBaseSqliteGetCount() == "0"
+
+    DownloadQuestion( "Brak danych" )
+
+  ENDIF
+  
+  
+#ELSE
+
   IF LEN( aDataBase ) == 0
 
     DownloadQuestion( "Brak danych" )
 
   ENDIF
+  
+#ENDIF
 
 
 RETURN
@@ -158,6 +172,23 @@ RETURN
 PROCEDURE win_Main_btn_DownloadCSV_Action()
 *-----------------------------------------------------------------------------*
 
+
+#IFDEF __SQLITE__
+
+  IF DataBaseSqliteGetCount() == "0"
+  
+    DownloadQuestion( "Brak danych" )
+
+  ELSE
+
+    DownloadQuestion( "Aktualiazja danych" )
+
+  ENDIF  
+
+
+#ELSE
+
+
   IF LEN( aDataBase ) == 0
 
     DownloadQuestion( "Brak danych" )
@@ -167,6 +198,9 @@ PROCEDURE win_Main_btn_DownloadCSV_Action()
     DownloadQuestion( "Aktualiazja danych" )
 
   ENDIF
+
+
+#ENDIF
 
 
 RETURN
@@ -240,7 +274,17 @@ PROCEDURE win_Main_lbl_Name_Action()
   do_events()
   win_Main.lbl_BackGround.Setfocus()
 
+
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -279,7 +323,17 @@ PROCEDURE win_Main_lbl_Address_Action()
   do_events()
   win_Main.lbl_BackGround.Setfocus()
 
+
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -318,7 +372,17 @@ PROCEDURE win_Main_lbl_Place_Action()
   do_events()
   win_Main.lbl_BackGround.Setfocus()
 
+
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -363,7 +427,17 @@ PROCEDURE win_Main_lbl_Find_Action()
 
   nPage := 1
 
+
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -379,7 +453,17 @@ PROCEDURE win_Main_lbl_First_Action()
 
   nPage := 1
 
+
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -423,7 +507,16 @@ PROCEDURE win_Main_lbl_Prior_Action()
   ENDIF
 
 
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -461,14 +554,37 @@ PROCEDURE win_Main_lbl_Next_Action()
   win_Main.lbl_BackGround.Setfocus()
 
 
+
+
+
+#IFDEF __SQLITE__
+
+   nRecords := DataBaseSqliteGetCountRecords( win_Main.txb_Name.Value , win_Main.txb_Address.Value , win_Main.txb_Place.Value )
+   
+   
+   IF nPage + 1 < ( ( INT ( nRecords / 5 ) ) + 1 ) + 1
+
+    nPage++
+
+  ENDIF 
+ 
+ 
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
+
   IF nPage + 1 < ( ( INT ( LEN( aDataBase ) / 5 ) ) + 1 ) + 1
 
     nPage++
 
   ENDIF
-
-
+  
+  
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -505,6 +621,24 @@ PROCEDURE win_Main_lbl_Last_Action()
 
   win_Main.lbl_BackGround.Setfocus()
 
+#IFDEF __SQLITE__
+
+  nRecords := DataBaseSqliteGetCountRecords( win_Main.txb_Name.Value , win_Main.txb_Address.Value , win_Main.txb_Place.Value )
+
+  IF INT ( nRecords / 5 ) == ( nRecords / 5 )
+
+    nPage := ( ( INT ( nRecords / 5 ) )     )
+
+  ELSE
+
+    nPage := ( ( INT ( nRecords / 5 ) ) + 1 )
+
+  ENDIF
+  
+  
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
 
   IF INT ( LEN( aDataBase ) / 5 ) == ( LEN( aDataBase ) / 5 )
 
@@ -518,6 +652,9 @@ PROCEDURE win_Main_lbl_Last_Action()
 
 
   ViewData( nPage )
+
+#ENDIF
+
 
 RETURN
 *-----------------------------------------------------------------------------*

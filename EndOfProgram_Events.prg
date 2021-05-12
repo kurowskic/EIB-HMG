@@ -12,7 +12,17 @@ RETURN
 PROCEDURE win_EndOfProgram_btn_NOT()
 *-----------------------------------------------------------------------------*
 
+
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
   aFrm := CTK_Release( aFrm )
 

@@ -137,6 +137,18 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             PICTURE ""
      END BUTTON  
 
+     DEFINE BUTTON btn_test
+            ROW    34
+            COL    34
+            WIDTH  32
+            HEIGHT 32
+            CAPTION "Test"
+            FONTNAME fARIAL
+            FONTSIZE 10
+            PICTURE ""
+            ACTION win_Main_btn_Test_Action()
+     END BUTTON 
+
      DEFINE TEXTBOX txb_Name
             ROW    80
             COL    20

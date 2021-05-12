@@ -11,7 +11,7 @@
 
 #DEFINE  _DB1_       '0'
 #DEFINE  _DB2_       '00'
-#DEFINE  _DB3_       '000'
+#DEFINE  _DB3_       '001'
 
 
 #DEFINE  _OLD_PRG1_  '0'
@@ -34,10 +34,17 @@
 #DEFINE MsgNoYes(c)  MsgYesNo( c , NAZWA_PR , .t. , 0 ,  .F. , .F. )
 
 
-#INCLUDE  "Dbstruct.ch"
-#INCLUDE  "common.ch"
-#INCLUDE  "fileio.ch"
-#INCLUDE  "Directry.ch"
+#INCLUDE "Dbstruct.ch"
+#INCLUDE "common.ch"
+#INCLUDE "fileio.ch"
+#INCLUDE "Directry.ch"
+
+
+#IFDEF __SQLITE__
+
+  #INCLUDE "hbsqlit3.ch"
+
+#ENDIF
 
 
 #IFDEF _HMG_2_
@@ -84,6 +91,7 @@
 
 #ENDIF
 
+#DEFINE VIEW_RECORDS 5
 
 #ifndef __XHARBOUR__
 
