@@ -239,6 +239,8 @@ PROCEDURE Main()
 #ENDIF
 
 
+    win_Main.btn_test.Hide
+
     DO CASE 
 	
       CASE GetDesktopRealHeight() == GetProperty( "win_Main" , "Height" ) ;

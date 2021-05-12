@@ -2,7 +2,16 @@
 PROCEDURE About_btn_OK()
 *-----------------------------------------------------------------------------*
 
+#IFDEF __SQLITE__
+
+  DataBaseSqliteViewData( nPage )
+
+#ELSE
+
   ViewData( nPage )
+
+#ENDIF
+
 
   aFrm := CTK_Release( aFrm )
 
