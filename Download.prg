@@ -7,27 +7,6 @@
 PROCEDURE Download()
 *-----------------------------------------------------------------------------*
 
-  MEMVAR lbl_BackGround
-  MEMVAR img_APPTitle
-  MEMVAR lbl_APPTitle
-  MEMVAR frm_Main
-  MEMVAR img_1
-  MEMVAR lbl_0
-  MEMVAR lbl_1
-  MEMVAR prb_1
-  MEMVAR btn_OK
-
-  PRIVATE lbl_BackGround
-  PRIVATE img_APPTitle
-  PRIVATE lbl_APPTitle
-  PRIVATE frm_Main
-  PRIVATE img_1
-  PRIVATE lbl_0
-  PRIVATE lbl_1
-  PRIVATE prb_1
-  PRIVATE btn_OK
-
-
   DECLARE WINDOW win_Main
   DECLARE WINDOW win_Download
 
@@ -52,25 +31,19 @@ PROCEDURE Download()
 
 #ENDIF
 
+
     SetProperty( "win_Download", "frm_Main" ,"Caption" ,"" )
     SetProperty( "win_Download", "lbl_0"    ,"Value"   ,"" )
 
     SetProperty( "win_Download", "lbl_1"    ,"Value"   , "Pobieranie danych..." )
 
+
     ON KEY ALT+F4 OF win_Download ACTION { || NIL }
-
-
-#IFDEF _HMG_2_
-
-    win_Download.Row := ( APP_ROW + ( APP_HEIGHT - win_Download.Height ) / 2 )
-    win_Download.Col := ( APP_COL + ( APP_WIDTH  - win_Download.Width  ) / 2 )
-
-#ENDIF
 
 
     AADD( aFrm , { "win_Download" , win_Download.Row, win_Download.Col } )
 
-    CTK_DrawBorder( "win_Download" )
+    win_Download.img_APPTitle.Picture  := "APP_MAIN"
 
     win_Download.Activate()
 
@@ -83,4 +56,8 @@ RETURN
 
 *-----------------------------------------------------------------------------*
 #include "Download_Events.prg"
+*-----------------------------------------------------------------------------*
+
+
+*-----------------------------------------------------------------------------*
 *-----------------------------------------------------------------------------*

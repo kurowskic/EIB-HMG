@@ -11,7 +11,10 @@ PROCEDURE Main()
   MEMVAR APP_COL
   MEMVAR APP_HEIGHT
   MEMVAR APP_WIDTH
-
+  
+  MEMVAR APP_ADJUST_X
+  MEMVAR APP_ADJUST_Y
+  
   MEMVAR fARIAL
   MEMVAR fCOURIER
   MEMVAR fTIMES
@@ -27,6 +30,9 @@ PROCEDURE Main()
   PUBLIC APP_HEIGHT
   PUBLIC APP_WIDTH
 
+  PUBLIC APP_ADJUST_X
+  PUBLIC APP_ADJUST_Y
+
   PUBLIC fARIAL
   PUBLIC fCOURIER
   PUBLIC fTIMES
@@ -34,7 +40,6 @@ PROCEDURE Main()
   PUBLIC fCALIBRI
 
   PUBLIC aDataBase
-
   PUBLIC nPage
 
 
@@ -51,9 +56,6 @@ PROCEDURE Main()
 
 #ENDIF
 
-
-  aDataBase := {}
-  nPage := 1
 
   SETCANCEL( FALSE )
   SET DELETED ON
@@ -90,6 +92,9 @@ PROCEDURE Main()
 
   ERRORLEVEL( 0 )
 
+  aDataBase := {}
+  nPage := 1
+
 
 #IFDEF _HMG_3_
 
@@ -100,11 +105,22 @@ PROCEDURE Main()
 
 #ENDIF
 
+  APP_ADJUST_X := 1
+  APP_ADJUST_Y := 1
+
 
   aFrm := {}
 
 
   DO CASE
+
+    CASE "Windows 10" $ OS()
+
+      fARIAL   := 'Arial'
+      fCOURIER := 'Courier New'
+      fTAHOMA  := 'Tahoma'
+      fTIMES   := 'Times New Roman'
+      fCALIBRI := 'Calibri'
 
     CASE "Windows NT 10" $ OS()
 
@@ -142,7 +158,7 @@ PROCEDURE Main()
       fARIAL   := 'Arial CE'
       fCOURIER := 'Courier New CE'
       fTAHOMA  := 'Times New Roman CE'
-      fTimes   := 'Times New Roman CE'
+      fTIMES   := 'Times New Roman CE'
       fCALIBRI := 'Times New Roman CE'
 
     CASE "Windows 98" $ OS()
@@ -150,7 +166,7 @@ PROCEDURE Main()
       fARIAL   := 'Arial'
       fCOURIER := 'Courier New'
       fTAHOMA  := 'Tahoma'
-      fTimes   := 'Times New Roman'
+      fTIMES   := 'Times New Roman'
       fCALIBRI := 'Times New Roman'
 
   END CASE
@@ -215,25 +231,74 @@ PROCEDURE Main()
 
 #ENDIF
 
-    APP_ROW    := win_Main.Row
-    APP_COL    := win_Main.Col
+
+#IFDEF _HMG_3_
+
+    win_Main.Title := NAZWA_PR
+
+#ENDIF
+
+
+#IFDEF _HMG_2_
+
+    win_Main.btn_test.Hide
+	
+#ENDIF
+
+
+    DO CASE 
+	
+      CASE GetDesktopRealHeight() == GetProperty( "win_Main" , "Height" ) ;
+	       .AND. ;
+		   GetDesktopRealWidth() == GetProperty( "win_Main" , "Width" )
+
+             win_Main.btn_Center.Hide
+		     win_Main.btn_Max.Hide
+
+
+      CASE GetDesktopRealHeight() < GetProperty( "win_Main" , "Height" ) ;
+	       .AND. ;
+		   GetDesktopRealWidth() < GetProperty( "win_Main" , "Width" )
+		   
+             APP_ADJUST_Y :=  GetDesktopRealHeight() / win_Main.Height
+	         SetProperty( "win_Main" , "Height" , GetProperty( "win_Main" , "Height" ) * APP_ADJUST_Y )
+	  
+             APP_ADJUST_X := GetDesktopRealWidth() / win_Main.Width
+             SetProperty( "win_Main" , "Width" , GetProperty( "win_Main" , "Width" ) * APP_ADJUST_X )
+	   
+             win_Main.btn_Center.Hide
+		     win_Main.btn_Max.Hide
+
+
+      CASE GetDesktopRealHeight() > GetProperty( "win_Main" , "Height" ) ;
+	       .AND. ;
+		   GetDesktopRealWidth() > GetProperty( "win_Main" , "Width" )
+	   
+             win_Main.btn_Center.Show
+		 
+		 
+	END CASE
+
+
+    APP_ROW    := GetProperty( "win_Main" , "Row" )
+    APP_COL    := GetProperty( "win_Main" , "Col" )
     APP_HEIGHT := win_Main.Height
     APP_WIDTH  := win_Main.Width
 
     AADD( aFrm , { "win_Main" , win_Main.Row , win_Main.Col } )
-
-    ON KEY ALT+F4 OF win_Main ACTION { || win_main_btn_ExitPr() }
+	
+    ON KEY ALT+F4 OF win_Main ACTION { || EndOfProgram() }
 	ON KEY F2     OF win_Main ACTION { || CenterMainWindow()    }
 
     SetProperty( "win_Main" , "btn_ExitPR" , "Action" , { || win_main_btn_ExitPr() } )
     SetProperty( "win_Main" , "btn_MinPR"  , "Action" , { || win_main_btn_MinPr()  } )
 
+    win_Main.btn_DownloadCSV.Picture := 'APP_DOWN_20'  
     win_Main.btn_About.Picture       := 'APP_INFO_20' 
-    win_Main.btn_Center.Picture      := 'APP_CENT_20'	
-    win_Main.btn_DownloadCSV.Picture := 'APP_DOWN_20'   
-    win_Main.btn_ExitPR.Picture      := 'APP_EXIT_20'   
+    win_Main.btn_Center.Picture      := 'APP_CENT_20'
+    win_Main.btn_Max.Picture         := 'APP_MAXI_20' 
     win_Main.btn_MinPR.Picture       := 'APP_MINI_20'
-
+    win_Main.btn_ExitPR.Picture      := 'APP_EXIT_20' 
 
     win_Main.Center
     win_Main.Activate

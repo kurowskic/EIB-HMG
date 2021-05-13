@@ -12,3 +12,4 @@
 
 #DEFINE  _HMG_2_
 
+#DEFINE __SQLITE__

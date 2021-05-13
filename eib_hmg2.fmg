@@ -1,7 +1,7 @@
 *HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
 *OPEN SOURCE PROJECT 2005-2011 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/                                                                                                                                      
 
-DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZE NOSYSMENU ON INIT WIN_MAIN_ONINIT( ) BACKCOLOR { 000 , 085 , 229 }  ON MOUSECLICK MOVEACTIVEWINDOW( , THIS.NAME ) ON RESTORE MOVEACTIVEWINDOW( , THIS.NAME ) ON GOTFOCUS MOVEACTIVEWINDOW( , THIS.NAME )
+DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZE NOSYSMENU ON INIT WIN_MAIN_ONINIT( ) BACKCOLOR { 000 , 085 , 229 } ON MOUSECLICK MOVEACTIVEWINDOW( , THIS.NAME ) ON RESTORE MOVEACTIVEWINDOW( , THIS.NAME ) ON GOTFOCUS MOVEACTIVEWINDOW( , THIS.NAME )
 
      DEFINE LABEL lbl_BackGround
             ROW    2
@@ -40,7 +40,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
      DEFINE LABEL lbl_Counter
             ROW    2
             COL    540
-            WIDTH  150
+            WIDTH  170
             HEIGHT 32
             VALUE ""
             FONTNAME fCOURIER
@@ -48,14 +48,14 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             BACKCOLOR { 000 , 085 , 229 }
             FONTCOLOR { 000 , 000 , 000 }
             VCENTERALIGN .T.
-            RIGHTALIGN .T. 
+            RIGHTALIGN .F. 
             ACTION MoveActiveWindow( , "win_Main" )
      END LABEL  
 
      DEFINE LABEL lbl_Date
             ROW    2
-            COL    850
-            WIDTH  450
+            COL    810
+            WIDTH  510
             HEIGHT 32
             VALUE ""
             FONTNAME fCOURIER
@@ -63,13 +63,13 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             BACKCOLOR { 000 , 085 , 229 }
             FONTCOLOR { 000 , 000 , 000 }
             VCENTERALIGN .T.
-            RIGHTALIGN .T.
+            RIGHTALIGN .F.
             ACTION MoveActiveWindow( , "win_Main" )
      END LABEL  
 
      DEFINE BUTTON btn_DownloadCSV
             ROW    2
-            COL    1340
+            COL    1330
             WIDTH  32
             HEIGHT 32
             CAPTION ""
@@ -79,9 +79,21 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             ACTION win_Main_btn_DownloadCSV_Action()
      END BUTTON 
 
+     DEFINE BUTTON btn_About
+            ROW    2
+            COL    1365
+            WIDTH  32
+            HEIGHT 32
+            CAPTION ""
+            FONTNAME fARIAL
+            FONTSIZE 10
+            PICTURE ""
+            ACTION win_Main_btn_About_Action()
+     END BUTTON  
+	 
      DEFINE BUTTON btn_Center
             ROW    2
-            COL    1380
+            COL    1400
             WIDTH  32
             HEIGHT 32
             CAPTION ""
@@ -91,19 +103,18 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             ACTION win_Main_btn_Center_Action()
      END BUTTON   
 
-     DEFINE BUTTON btn_About
+     DEFINE BUTTON btn_MinPR
             ROW    2
-            COL    1430
+            COL    1435
             WIDTH  32
             HEIGHT 32
             CAPTION ""
             FONTNAME fARIAL
             FONTSIZE 10
             PICTURE ""
-            ACTION win_Main_btn_About_Action()
      END BUTTON  
-
-     DEFINE BUTTON btn_MinPR
+	 
+     DEFINE BUTTON btn_Max
             ROW    2
             COL    1470
             WIDTH  32
@@ -112,7 +123,8 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fARIAL
             FONTSIZE 10
             PICTURE ""
-     END BUTTON  
+            ACTION win_Main_btn_Max_Action()
+     END BUTTON 
 
      DEFINE BUTTON btn_ExitPR
             ROW    2
@@ -124,6 +136,18 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 10
             PICTURE ""
      END BUTTON  
+
+     DEFINE BUTTON btn_test
+            ROW    34
+            COL    34
+            WIDTH  32
+            HEIGHT 32
+            CAPTION "Test"
+            FONTNAME fARIAL
+            FONTSIZE 10
+            PICTURE ""
+            ACTION win_Main_btn_Test_Action()
+     END BUTTON 
 
      DEFINE TEXTBOX txb_Name
             ROW    80
@@ -287,6 +311,8 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             ROW 180
             WIDTH 1500
             HEIGHT 95
+			FONTNAME fTAHOMA
+            FONTSIZE 1
      END FRAME 
 
      DEFINE EDITBOX edb_Record1
@@ -424,4 +450,3 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
 
 END WINDOW
 
-

@@ -25,6 +25,33 @@ PROCEDURE  SetNavigation()
   ENDIF
 
 
+#IFDEF __SQLITE__
+
+  nRecords := DataBaseSqliteGetCountRecords( win_Main.txb_Name.Value , win_Main.txb_Address.Value , win_Main.txb_Place.Value )
+
+  IF  ( INT ( nRecords / 5 ) ) < 2
+
+    IF INT ( nRecords / 5 ) == ( nRecords / 5 )
+
+      win_Main.lbl_Next.Enabled  := FALSE
+      win_Main.lbl_Last.Enabled  := FALSE
+
+    ENDIF
+
+  ENDIF
+
+
+  IF nPage == ( INT ( nRecords / 5 ) ) + 1
+
+    win_Main.lbl_Next.Enabled  := FALSE
+    win_Main.lbl_Last.Enabled  := FALSE
+
+  ENDIF
+
+
+#ELSE
+
+
   IF  ( INT ( LEN( aDataBase ) / 5 ) ) < 2
 
     IF INT ( LEN( aDataBase ) / 5 ) == ( LEN( aDataBase ) / 5 )
@@ -43,6 +70,9 @@ PROCEDURE  SetNavigation()
     win_Main.lbl_Last.Enabled  := FALSE
 
   ENDIF
+
+
+#ENDIF
 
 
 RETURN
