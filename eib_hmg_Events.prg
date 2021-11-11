@@ -14,6 +14,9 @@ PROCEDURE win_main_OnInit()
 
   DO_Events()
 
+  win_Main_buttons_Disable()
+  DO_Events()
+
 
   DataBaseInit()
 
@@ -38,6 +41,9 @@ PROCEDURE win_main_OnInit()
   
 #ENDIF
 
+
+  win_Main_buttons_Enable()
+  DO_Events()
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -164,6 +170,9 @@ PROCEDURE win_Main_btn_About_Action()
 
   About()
 
+  do_events()
+  win_Main.lbl_BackGround.Setfocus()
+
 RETURN
 *-----------------------------------------------------------------------------*
 
@@ -171,7 +180,6 @@ RETURN
 *-----------------------------------------------------------------------------*
 PROCEDURE win_Main_btn_DownloadCSV_Action()
 *-----------------------------------------------------------------------------*
-
 
 #IFDEF __SQLITE__
 
@@ -203,6 +211,9 @@ PROCEDURE win_Main_btn_DownloadCSV_Action()
 #ENDIF
 
 
+  do_events()
+  win_Main.lbl_BackGround.Setfocus()
+
 RETURN
 *-----------------------------------------------------------------------------*
 
@@ -213,6 +224,9 @@ PROCEDURE win_Main_btn_ExitPR()
 
   EndOfProgram()
 
+  do_events()
+  win_Main.lbl_BackGround.Setfocus()
+
 RETURN
 *-----------------------------------------------------------------------------*
 
@@ -222,6 +236,9 @@ PROCEDURE win_Main_btn_MinPR()
 *-----------------------------------------------------------------------------*
 
   aFrm := CTK_Minimize( aFrm )
+
+  do_events()
+  win_Main.lbl_BackGround.Setfocus()
 
 RETURN
 *-----------------------------------------------------------------------------*
@@ -677,6 +694,32 @@ PROCEDURE win_Main_lbl_Last_Leave()
 
   win_Main.lbl_Last.Backcolor := { 255 , 255 , 255 }
   win_Main.lbl_Last.FontColor := { 000 , 170 , 000 }
+
+RETURN
+*-----------------------------------------------------------------------------*
+
+
+*-----------------------------------------------------------------------------*
+PROCEDURE win_Main_buttons_Disable()
+*-----------------------------------------------------------------------------*
+
+  win_Main.btn_DownloadCSV.Enabled := FALSE
+  win_Main.btn_about.Enabled       := FALSE
+  win_Main.btn_minPR.Enabled       := FALSE
+  win_Main.btn_ExitPR.Enabled      := FALSE
+
+RETURN
+*-----------------------------------------------------------------------------*
+
+
+*-----------------------------------------------------------------------------*
+PROCEDURE win_Main_buttons_Enable()
+*-----------------------------------------------------------------------------*
+
+  win_Main.btn_DownloadCSV.Enabled := TRUE
+  win_Main.btn_about.Enabled       := TRUE
+  win_Main.btn_minPR.Enabled       := TRUE
+  win_Main.btn_ExitPR.Enabled      := TRUE
 
 RETURN
 *-----------------------------------------------------------------------------*

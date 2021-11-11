@@ -6,6 +6,16 @@ PROCEDURE win_Download_OnInit()
 
   DO_Events()
 
+  win_Main.txb_Name.Value    := ""
+  win_Main.txb_Address.Value := ""
+  win_Main.txb_Place.Value   := ""
+
+  DO_Events()
+
+  ClearRecords()
+
+  DO_Events()
+
   download_csv()
   
   DO_Events()

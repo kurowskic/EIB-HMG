@@ -33,7 +33,6 @@ PROCEDURE DataBaseSqliteCreate()
   AADD( aStructInfo , { "Count"        , "C" ,   6,0 } )
   AADD( aStructInfo , { "Date"         , "C" ,  30,0 } )
 
-
   oSQL := SQLiteFacade():New( db_eib ) 
 
   oSQL:Open()
@@ -42,30 +41,22 @@ PROCEDURE DataBaseSqliteCreate()
   IF oSQL:ExistsTable( cTableData )  
 
     oSQL:DeleteTable( cTableData )
-    oSQL:CommitTransaction()
 
   ENDIF
-
 
   IF oSQL:ExistsTable( cTableInfo )  
 
     oSQL:DeleteTable( cTableInfo )
-    oSQL:CommitTransaction()
 
   ENDIF
 
 
   oSQL:Close()
-
-    
+  
+  
   oSQL:Open()
-
   oSQL:CreateTable( cTableData , aStructData )
-  oSQL:CommitTransaction()
-
   oSQL:CreateTable( cTableInfo , aStructInfo )
-  oSQL:CommitTransaction()
-
   oSQL:Close()
 
 RETURN 
@@ -205,7 +196,7 @@ FUNCTION DataBaseSqliteGetDate()
 
   oSQL:Open()
 
-  cSelectSQL := "SELECT Date FROM " + cTableInfo + ";"
+  cSelectSQL := "SELECT Date FROM " + cTableInfo +";"
 
   sqlData := oSQL:Prepare( cSelectSQL )
   oResponse := sqlData:executeQuery()

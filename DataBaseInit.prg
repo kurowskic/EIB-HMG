@@ -17,16 +17,24 @@ PROCEDURE DataBaseInit()
 
 #IFDEF __SQLITE__
 
-  CSV2Memeory( ;
-      ALLTRIM( win_Main.txb_Name.Value    ) ;
-    , ALLTRIM( win_Main.txb_Address.Value ) ;
-    , ALLTRIM( win_Main.txb_Place.Value   ) ;
-    )
 
-  DataBaseSqliteCreate()	
-  DataBaseSqliteImportDataBase()
-  aDataBase := {}
-// DELETEFILE ( GetTempFolder() + "\lesp.csv" )
+  IF !FILE("db_lesp.db")
+
+    DataBaseImport()
+
+  ENDIF
+
+
+//  msgbox ( ( DataBaseSqliteGetCountRecords() ) )
+  msgbox ( ( DataBaseSqliteGetCount() ) )
+
+/*
+  IF (DataBaseSqliteGetCountRecords()) == 0
+
+    DataBaseImport()
+
+  ENDIF
+*/
 
 #ELSE
 
@@ -103,6 +111,31 @@ PROCEDURE DataBaseInit()
 
 RETURN
 *-----------------------------------------------------------------------------*
+
+
+#IFDEF __SQLITE__
+
+*-----------------------------------------------------------------------------*
+PROCEDURE DataBaseImport()
+*-----------------------------------------------------------------------------*
+
+  CSV2Memeory( ;
+      ALLTRIM( win_Main.txb_Name.Value    ) ;
+    , ALLTRIM( win_Main.txb_Address.Value ) ;
+    , ALLTRIM( win_Main.txb_Place.Value   ) ;
+    )
+
+  DataBaseSqliteCreate()	
+
+  DataBaseSqliteImportDataBase()
+  aDataBase := {}
+
+  DELETEFILE ( GetTempFolder() + "\lesp.csv" )
+
+RETURN
+*-----------------------------------------------------------------------------*
+
+#ENDIF
 
 
 *-----------------------------------------------------------------------------*

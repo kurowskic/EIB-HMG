@@ -3,7 +3,7 @@
 *-----------------------------------------------------------------------------*
 
 #DEFINE  _PRG1_      '0'
-#DEFINE  _PRG2_      '14'
+#DEFINE  _PRG2_      '16'
 #DEFINE  _PRG3_      '000'
 
 #DEFINE  _PRG4_      '001'
@@ -15,7 +15,7 @@
 
 
 #DEFINE  _OLD_PRG1_  '0'
-#DEFINE  _OLD_PRG2_  '09'
+#DEFINE  _OLD_PRG2_  '14'
 #DEFINE  _OLD_PRG3_  '000'
 
 #DEFINE  _OLD_PRG4_  '000'
@@ -42,7 +42,9 @@
 
 #IFDEF __SQLITE__
 
-  #INCLUDE "hbsqlit3.ch"
+//  #IFDEF  _HMG_2_
+    #INCLUDE "hbsqlit3.ch"
+//  #ENDIF
 
 #ENDIF
 

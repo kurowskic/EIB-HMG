@@ -57,6 +57,9 @@ PROCEDURE download_csv()
 
 
   win_Download.prb_1.Value := 100
+
+  DO_Events()
+ 
   hb_IdleSleep(1)
 
 RETURN 
