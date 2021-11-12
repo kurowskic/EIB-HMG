@@ -252,8 +252,8 @@ PROCEDURE Main()
 	       .AND. ;
 		   GetDesktopRealWidth() == GetProperty( "win_Main" , "Width" )
 
-             win_Main.btn_Center.Hide
-		     win_Main.btn_Max.Hide
+//             win_Main.btn_Center.Hide
+//             win_Main.btn_Max.Hide
 
 
       CASE GetDesktopRealHeight() < GetProperty( "win_Main" , "Height" ) ;
@@ -266,18 +266,18 @@ PROCEDURE Main()
              APP_ADJUST_X := GetDesktopRealWidth() / win_Main.Width
              SetProperty( "win_Main" , "Width" , GetProperty( "win_Main" , "Width" ) * APP_ADJUST_X )
 	   
-             win_Main.btn_Center.Hide
-		     win_Main.btn_Max.Hide
+//             win_Main.btn_Center.Hide
+//             win_Main.btn_Max.Hide
 
 
       CASE GetDesktopRealHeight() > GetProperty( "win_Main" , "Height" ) ;
-	       .AND. ;
+               .AND. ;
 		   GetDesktopRealWidth() > GetProperty( "win_Main" , "Width" )
 	   
-             win_Main.btn_Center.Show
+//             win_Main.btn_Center.Show
 		 
 		 
-	END CASE
+    END CASE
 
 
     APP_ROW    := GetProperty( "win_Main" , "Row" )
@@ -295,8 +295,8 @@ PROCEDURE Main()
 
     win_Main.btn_DownloadCSV.Picture := 'APP_DOWN_20'  
     win_Main.btn_About.Picture       := 'APP_INFO_20' 
-    win_Main.btn_Center.Picture      := 'APP_CENT_20'
-    win_Main.btn_Max.Picture         := 'APP_MAXI_20' 
+//    win_Main.btn_Center.Picture      := 'APP_CENT_20'
+//    win_Main.btn_Max.Picture         := 'APP_MAXI_20' 
     win_Main.btn_MinPR.Picture       := 'APP_MINI_20'
     win_Main.btn_ExitPR.Picture      := 'APP_EXIT_20' 
 

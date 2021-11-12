@@ -69,7 +69,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
 
      DEFINE BUTTON btn_DownloadCSV
             ROW    2
-            COL    1330
+            COL    1330 + 35 + 35
             WIDTH  32
             HEIGHT 32
             CAPTION ""
@@ -81,7 +81,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
 
      DEFINE BUTTON btn_About
             ROW    2
-            COL    1365
+            COL    1365 + 35 + 35
             WIDTH  32
             HEIGHT 32
             CAPTION ""
@@ -90,7 +90,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             PICTURE ""
             ACTION win_Main_btn_About_Action()
      END BUTTON  
-	 
+/*	 
      DEFINE BUTTON btn_Center
             ROW    2
             COL    1400
@@ -102,10 +102,10 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             PICTURE ""
             ACTION win_Main_btn_Center_Action()
      END BUTTON   
-
+*/
      DEFINE BUTTON btn_MinPR
             ROW    2
-            COL    1435
+            COL    1435 + 35
             WIDTH  32
             HEIGHT 32
             CAPTION ""
@@ -113,7 +113,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 10
             PICTURE ""
      END BUTTON  
-	 
+/*	 
      DEFINE BUTTON btn_Max
             ROW    2
             COL    1470
@@ -125,7 +125,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             PICTURE ""
             ACTION win_Main_btn_Max_Action()
      END BUTTON 
-
+ */
      DEFINE BUTTON btn_ExitPR
             ROW    2
             COL    1505

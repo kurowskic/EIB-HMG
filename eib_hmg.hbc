@@ -9,6 +9,7 @@ libs=hbmisc
 libs=xhb
 libs=hbwin
 libs=ini
+libs=sqlite3
 gt=
 mt=no
 instpaths=
