@@ -17,11 +17,13 @@ PROCEDURE win_DownloadQuestion_btn_YES()
 #IFDEF __SQLITE__
 
   DataBaseSqliteCreate()
-  DataBaseInit()
+//  DataBaseInit()
+DataBaseImport()
   
 #ELSE
 
-  DataBaseInit()
+//  DataBaseInit()
+DataBaseImport()
 
 #ENDIF
 

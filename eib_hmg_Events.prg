@@ -17,30 +17,7 @@ PROCEDURE win_main_OnInit()
   win_Main_buttons_Disable()
   DO_Events()
 
-
   DataBaseInit()
-
-
-#IFDEF __SQLITE__
-
-
-  IF DataBaseSqliteGetCount() == "0"
-
-    DownloadQuestion( "Brak danych" )
-
-  ENDIF
-  
-  
-#ELSE
-
-  IF LEN( aDataBase ) == 0
-
-    DownloadQuestion( "Brak danych" )
-
-  ENDIF
-  
-#ENDIF
-
 
   win_Main_buttons_Enable()
   DO_Events()
@@ -79,7 +56,7 @@ PROCEDURE win_Main_btn_Center_Action()
   APP_WIDTH  := 1536
 
   APP_ADJUST_X := 1 / nApp_Adjust_X
-  APP_ADJUST_Y := 1	/ nApp_Adjust_Y
+  APP_ADJUST_Y := 1 / nApp_Adjust_Y
 
   win_Main.Hide
   DO_Events() 
@@ -571,9 +548,6 @@ PROCEDURE win_Main_lbl_Next_Action()
   win_Main.lbl_BackGround.Setfocus()
 
 
-
-
-
 #IFDEF __SQLITE__
 
    nRecords := DataBaseSqliteGetCountRecords( win_Main.txb_Name.Value , win_Main.txb_Address.Value , win_Main.txb_Place.Value )
@@ -638,6 +612,7 @@ PROCEDURE win_Main_lbl_Last_Action()
 
   win_Main.lbl_BackGround.Setfocus()
 
+
 #IFDEF __SQLITE__
 
   nRecords := DataBaseSqliteGetCountRecords( win_Main.txb_Name.Value , win_Main.txb_Address.Value , win_Main.txb_Place.Value )
@@ -655,7 +630,9 @@ PROCEDURE win_Main_lbl_Last_Action()
   
   DataBaseSqliteViewData( nPage )
 
+
 #ELSE
+
 
   IF INT ( LEN( aDataBase ) / 5 ) == ( LEN( aDataBase ) / 5 )
 

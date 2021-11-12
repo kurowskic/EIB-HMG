@@ -4,7 +4,7 @@
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE download_csv()
+PROCEDURE download_csv(xlProgress)
 *-----------------------------------------------------------------------------*
 * https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp
 *-----------------------------------------------------------------------------*
@@ -16,9 +16,17 @@ PROCEDURE download_csv()
   LOCAL nSuccess
   LOCAL cFile
 
+  DEFAULT xlProgress := TRUE
+
   DECLARE WINDOW win_Download
 
-  win_Download.prb_1.Value := 10
+
+  IF xlProgress
+
+    win_Download.prb_1.Value := 10
+    DO_Events()
+
+  ENDIF
 
 
   cFile := GetTempFolder() + "\lesp.csv"
@@ -32,7 +40,12 @@ PROCEDURE download_csv()
   cReturn := oHTTPS:responseText
 
 
-  win_Download.prb_1.Value := 75
+  IF xlProgress
+
+    win_Download.prb_1.Value := 75
+    DO_Events()
+
+  ENDIF
 
 
   IF LEN( cReturn ) > 0
@@ -56,9 +69,13 @@ PROCEDURE download_csv()
   ENDIF
 
 
-  win_Download.prb_1.Value := 100
+  IF xlProgress
 
-  DO_Events()
+    win_Download.prb_1.Value := 100
+    DO_Events()
+
+  ENDIF
+
  
   hb_IdleSleep(1)
 

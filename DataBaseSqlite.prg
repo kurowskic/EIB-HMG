@@ -110,7 +110,7 @@ PROCEDURE DataBaseSqliteImportDataBase()
   sqlInfo:SetString( ":Count" , STR( LEN( aDataBase ) ) )
   sqlInfo:SetString( ":Date"  , GetDateFile() )
   sqlInfo:ExecuteUpdate()
-  
+
   sqlInfo:Close()
 
 
@@ -176,8 +176,14 @@ FUNCTION DataBaseSqliteGetCount()
   sqlData := oSQL:Prepare( cSelectSQL )
   oResponse := sqlData:executeQuery()
 
-  cCount    := oResponse:getString( "Count" )  
-    
+
+  TRY
+    cCount    := oResponse:getString( "Count" )  
+  CATCH
+    cCount := "NIL"
+  END
+
+
   oResponse:Close()
   sqlData:Close()
   oSQL:Close()

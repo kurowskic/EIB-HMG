@@ -42,9 +42,9 @@
 
 #IFDEF __SQLITE__
 
-//  #IFDEF  _HMG_2_
+  #IFDEF  _HMG_2_
     #INCLUDE "hbsqlit3.ch"
-//  #ENDIF
+  #ENDIF
 
 #ENDIF
 
