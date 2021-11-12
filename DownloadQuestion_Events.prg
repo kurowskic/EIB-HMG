@@ -6,6 +6,9 @@ PROCEDURE win_DownloadQuestion_btn_YES()
 
   DO_Events()
 
+  win_Main_buttons_Disable()
+  DO_Events()
+
   win_DownloadQuestion.Hide
 
   Download()
@@ -14,11 +17,13 @@ PROCEDURE win_DownloadQuestion_btn_YES()
 #IFDEF __SQLITE__
 
   DataBaseSqliteCreate()
-  DataBaseInit()
+//  DataBaseInit()
+DataBaseImport()
   
 #ELSE
 
-  DataBaseInit()
+//  DataBaseInit()
+DataBaseImport()
 
 #ENDIF
 
@@ -29,6 +34,9 @@ PROCEDURE win_DownloadQuestion_btn_YES()
   win_Main.Show
 
 #ENDIF
+
+  win_Main_buttons_Enable()
+  DO_Events()
 
   aFrm := CTK_Release( aFrm )
 

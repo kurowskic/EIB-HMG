@@ -17,6 +17,61 @@ PROCEDURE DataBaseInit()
 
 #IFDEF __SQLITE__
 
+
+  IF !FILE("db_lesp.db")
+
+    DataBaseSqliteCreate()	
+    DataBaseInfo()
+
+  ELSE
+
+    IF DataBaseSqliteGetCount() == "NIL"
+
+      DataBaseInfo()
+
+    ELSE
+
+      IF ( DataBaseSqliteGetCountRecords() == 0.00 )
+
+        DataBaseInfo()
+
+      ENDIF
+
+    ENDIF
+
+  ENDIF
+
+
+#ELSE
+
+
+  CSV2Memeory( ;
+      ALLTRIM( win_Main.txb_Name.Value    ) ;
+    , ALLTRIM( win_Main.txb_Address.Value ) ;
+    , ALLTRIM( win_Main.txb_Place.Value   ) ;
+    )
+
+  DataBaseInfo()
+
+	
+#ENDIF
+
+
+  DataBaseInfo()
+
+
+RETURN
+*-----------------------------------------------------------------------------*
+
+
+#IFDEF __SQLITE__
+
+*-----------------------------------------------------------------------------*
+PROCEDURE DataBaseImport()
+*-----------------------------------------------------------------------------*
+
+  download_csv(FALSE)
+
   CSV2Memeory( ;
       ALLTRIM( win_Main.txb_Name.Value    ) ;
     , ALLTRIM( win_Main.txb_Address.Value ) ;
@@ -24,23 +79,46 @@ PROCEDURE DataBaseInit()
     )
 
   DataBaseSqliteCreate()	
+
   DataBaseSqliteImportDataBase()
   aDataBase := {}
-// DELETEFILE ( GetTempFolder() + "\lesp.csv" )
+
+  DELETEFILE ( GetTempFolder() + "\lesp.csv" )
+
+  DataBaseInfo()
+
+RETURN
+*-----------------------------------------------------------------------------*
+
 
 #ELSE
+
+
+*-----------------------------------------------------------------------------*
+PROCEDURE DataBaseImport()
+*-----------------------------------------------------------------------------*
+
+  download_csv(FALSE)
 
   CSV2Memeory( ;
       ALLTRIM( win_Main.txb_Name.Value    ) ;
     , ALLTRIM( win_Main.txb_Address.Value ) ;
     , ALLTRIM( win_Main.txb_Place.Value   ) ;
     )
-	
+
+  DataBaseInfo()
+
+RETURN
+*-----------------------------------------------------------------------------*
+
 #ENDIF
 
 
-#IFDEF _HMG_2_
+*-----------------------------------------------------------------------------*
+PROCEDURE DataBaseInfo()
+*-----------------------------------------------------------------------------*
 
+#IFDEF _HMG_2_
 
 #IFDEF __SQLITE__  
 

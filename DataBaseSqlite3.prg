@@ -33,7 +33,6 @@ PROCEDURE DataBaseSqliteCreate()
   AADD( aStructInfo , { "Count"        , "C" ,   6,0 } )
   AADD( aStructInfo , { "Date"         , "C" ,  30,0 } )
 
-
   oSQL := SQLiteFacade():New( db_eib ) 
 
   oSQL:Open()
@@ -42,30 +41,22 @@ PROCEDURE DataBaseSqliteCreate()
   IF oSQL:ExistsTable( cTableData )  
 
     oSQL:DeleteTable( cTableData )
-    oSQL:CommitTransaction()
 
   ENDIF
-
 
   IF oSQL:ExistsTable( cTableInfo )  
 
     oSQL:DeleteTable( cTableInfo )
-    oSQL:CommitTransaction()
 
   ENDIF
 
 
   oSQL:Close()
-
-    
+  
+  
   oSQL:Open()
-
   oSQL:CreateTable( cTableData , aStructData )
-  oSQL:CommitTransaction()
-
   oSQL:CreateTable( cTableInfo , aStructInfo )
-  oSQL:CommitTransaction()
-
   oSQL:Close()
 
 RETURN 
@@ -110,7 +101,7 @@ PROCEDURE DataBaseSqliteImportDataBase()
   sqlInfo:SetString( ":Count" , STR( LEN( aDataBase ) ) )
   sqlInfo:SetString( ":Date"  , GetDateFile() )
   sqlInfo:ExecuteUpdate()
-
+  
   sqlInfo:Close()
 
 
@@ -176,14 +167,8 @@ FUNCTION DataBaseSqliteGetCount()
   sqlData := oSQL:Prepare( cSelectSQL )
   oResponse := sqlData:executeQuery()
 
-
-  TRY
-    cCount    := oResponse:getString( "Count" )  
-  CATCH
-    cCount := "NIL"
-  END
-
-
+  cCount    := oResponse:getString( "Count" )  
+    
   oResponse:Close()
   sqlData:Close()
   oSQL:Close()
@@ -211,7 +196,7 @@ FUNCTION DataBaseSqliteGetDate()
 
   oSQL:Open()
 
-  cSelectSQL := "SELECT Date FROM " + cTableInfo + ";"
+  cSelectSQL := "SELECT Date FROM " + cTableInfo +";"
 
   sqlData := oSQL:Prepare( cSelectSQL )
   oResponse := sqlData:executeQuery()

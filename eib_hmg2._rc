@@ -12,8 +12,8 @@ APP_MAXI_20         BITMAP "resource\app_maxi_20.bmp"
 APP_EXIT_20         BITMAP "resource\app_exit_20.bmp"
 
 1 VERSIONINFO
-FILEVERSION 0,14,0,0
-PRODUCTVERSION 0,14,0,0
+FILEVERSION 0,16,0,0
+PRODUCTVERSION 0,16,0,0
 FILEOS 0x4
 FILETYPE 0x1
 {
@@ -22,14 +22,14 @@ FILETYPE 0x1
     BLOCK "041504b0"
     {
       VALUE "FileDescription" , "Elektroniczne Skrzynki Podawcze\000"
-      VALUE "FileVersion"     , "0.14.000\000"
+      VALUE "FileVersion"     , "0.16.000\000"
       VALUE "InternalName"    , "Elektroniczne Skrzynki Podawcze\000"
       VALUE "LegalCopyright"  , "LC\000"
       VALUE "LegalTrademarks" , "LT\000"
       VALUE "OriginalFilename", "eib_hmg.exe\000"
       VALUE "CompanyName"     , "CN\000"
       VALUE "ProductName"     , "Elektroniczne Skrzynki Podawcze\000"
-      VALUE "ProductVersion"  , "0.14.000\000"
+      VALUE "ProductVersion"  , "0.16.000\000"
       VALUE "Comments"        , "Comments\000"
     }
   }
