@@ -4,10 +4,12 @@
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE download_csv(xlProgress)
+FUNCTION download_csv( xlProgress )
 *-----------------------------------------------------------------------------*
 * https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp
 *-----------------------------------------------------------------------------*
+// -> 0: OK
+// -> 1: NoInternetAccess
 
   LOCAL oHTTPS
   LOCAL cReturn      := ""
@@ -15,6 +17,9 @@ PROCEDURE download_csv(xlProgress)
   LOCAL nFileHandler
   LOCAL nSuccess
   LOCAL cFile
+  LOCAL nLevel := 1
+  LOCAL isInternetAccess := TRUE
+  
 
   DEFAULT xlProgress := TRUE
 
@@ -33,11 +38,18 @@ PROCEDURE download_csv(xlProgress)
 
   oHTTPS := CreateObject("Microsoft.XMLHTTP")
 
-  oHTTPS:Open( "GET" , cURL , .F. )
 
-  oHTTPS:Send()
+  IF .NOT. EMPTY( oHTTPS:Open( "GET" , cURL , .F. ) )
 
-  cReturn := oHTTPS:responseText
+    oHTTPS:Send()
+
+    cReturn := oHTTPS:responseText
+
+  ELSE
+
+    isInternetAccess := FALSE
+
+  ENDIF
 
 
   IF xlProgress
@@ -65,6 +77,9 @@ PROCEDURE download_csv(xlProgress)
 
     ENDIF
 
+  ELSE
+
+    nLevel := 2
 
   ENDIF
 
@@ -76,10 +91,17 @@ PROCEDURE download_csv(xlProgress)
 
   ENDIF
 
- 
-  hb_IdleSleep(1)
 
-RETURN 
+  hb_IdleSleep( 1 )
+
+  IF isInternetAccess == FALSE
+
+    nLevel := 1
+
+  ENDIF
+
+
+RETURN nLevel
 *-----------------------------------------------------------------------------*
 
 

@@ -17,12 +17,11 @@ PROCEDURE win_DownloadQuestion_btn_YES()
 #IFDEF __SQLITE__
 
   DataBaseSqliteCreate()
-//  DataBaseInit()
+
 DataBaseImport()
-  
+
 #ELSE
 
-//  DataBaseInit()
 DataBaseImport()
 
 #ENDIF
@@ -79,7 +78,7 @@ PROCEDURE win_DownloadQuestion_OnGotFocus()
 
   CTK_DrawBorder( "win_DownloadQuestion" )
 
- 
+
 RETURN
 *-----------------------------------------------------------------------------*
 

@@ -9,7 +9,7 @@ DeleteQuote.prg
 Download.prg
 download_csv.prg
 DownloadQuestion.prg
-EndOfProgram.prg
+EndTheProgram.prg
 GetDateFile.prg
 SetNavigation.prg
 ViewData.prg

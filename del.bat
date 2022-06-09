@@ -10,3 +10,6 @@ del errorlog.htm
 del eib_ver.ch
 del eib_hmg.exe
 del eib.exe
+del db_lesp.db
+del db_lesp.db-journal
+del temp.txt

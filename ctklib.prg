@@ -17,7 +17,6 @@ RETURN
 PROCEDURE CTK_DrawBorder( xcForm )
 *-----------------------------------------------------------------------------*
 
-
   LOCAL nControlRow := 0 ,; // GetProperty( xcForm, "Row" ),;
         nControlCol := 0 ,; // GetProperty( xcForm, "Col" ),;
         nControlWid := GetProperty( xcForm, "Width" ),;
@@ -43,32 +42,32 @@ PROCEDURE CTK_DrawBorder( xcForm )
 
 
   // TOP
-        DRAW LINE IN WINDOW &xcForm                      ; 
+        DRAW LINE IN WINDOW &xcForm                      ;
             AT nBordrRow           , nBordrCol           ;
             TO nBordrRow           , nBordrCol+nBordrWid ;
             PENCOLOR Color                               ;
-            PENWIDTH nPenWidth                          
+            PENWIDTH nPenWidth
 
         // LEFT
         DRAW LINE IN WINDOW &xcForm                      ;
             AT nBordrRow           , nBordrCol           ;
             TO nBordrRow+nBordrHig , nBordrCol           ;
             PENCOLOR Color                               ;
-            PENWIDTH nPenWidth                          
+            PENWIDTH nPenWidth
 
         // BOTTOM
         DRAW LINE IN WINDOW &xcForm                      ;
             AT nBordrRow+nBordrHig , nBordrCol           ;
             TO nBordrRow+nBordrHig , nBordrCol+nBordrWid ;
             PENCOLOR Color                               ;
-            PENWIDTH nPenWidth                          
+            PENWIDTH nPenWidth
 
        // RIGHT
         DRAW LINE IN WINDOW &xcForm                      ;
             AT nBordrRow           , nBordrCol+nBordrWid ;
             TO nBordrRow+nBordrHig , nBordrCol+nBordrWid ;
             PENCOLOR Color                               ;
-            PENWIDTH nPenWidth                          
+            PENWIDTH nPenWidth
 
 
   Do_Events()
@@ -152,7 +151,7 @@ FUNCTION CTK_Restore( xaFrm )
   LOCAL nI
   LOCAL nFrm
 
-  nFrm := LEN( xaFrm ) 
+  nFrm := LEN( xaFrm )
 
 
   IF nFrm > 1
@@ -173,12 +172,12 @@ FUNCTION CTK_Restore( xaFrm )
   ENDIF
 
 
-  do_events()
+  Do_Events()
 
   aFrm[ 1 , 2 ] := APP_ROW
   aFrm[ 1 , 3 ] := APP_COL
 
-  do_events()
+  Do_Events()
 
 
 RETURN xaFrm

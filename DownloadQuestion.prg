@@ -21,7 +21,7 @@ PROCEDURE DownloadQuestion( xlbl_0 )
     win_DownloadQuestion.TitleBar := .F.
     win_DownloadQuestion.SysMenu  := .T.
     win_DownloadQuestion.Sizable  := .F.
-	
+
 #ENDIF
 
 

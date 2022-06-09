@@ -1,4 +1,4 @@
-if "%MG_ROOT%"=="" set MG_ROOT=c:\minigui
+if "%MG_ROOT%"=="" set MG_ROOT=%~d0\minigui
 
 title eib_hmg
 
@@ -23,7 +23,9 @@ call %MG_ROOT%\batch\compile.bat DeleteQuote           /nl %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat Download              /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat download_csv          /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat DownloadQuestion      /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
-call %MG_ROOT%\batch\compile.bat EndOfProgram          /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat Import                /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat NoInternetAccess      /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat EndTheProgram         /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat GetDateFile           /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat SetNavigation         /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ViewData              /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
@@ -32,7 +34,7 @@ call %MG_ROOT%\batch\compile.bat CenterMainWindow      /nl %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat CenterModalWindow     /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat test                  /nl %1 %2 %3 %4 %5 %6 %7 %8 %9
 
-call %MG_ROOT%\batch\compile.bat eib_hmg /lo /b ctklib /b test /b About /b AutoAdjustControls /b ClearRecords /b DataBaseSqlite /b csv2Memeory /b DataBaseInit /b DeleteQuote /b Download /b download_csv /b DownloadQuestion /b EndOfProgram /b GetDateFile /b SetNavigation /b ViewData /b MoveActiveWindow /b CenterMainWindow /b CenterModalWindow /l sqlite3facade /l hbsqlit3 /l sqlite3 /r eib_hmg /nx %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat eib_hmg /lo /b ctklib /b test /b About /b AutoAdjustControls /b ClearRecords /b DataBaseSqlite /b csv2Memeory /b DataBaseInit /b DeleteQuote /b Download /b download_csv /b DownloadQuestion /b Import /b NoInternetAccess /b EndTheProgram /b GetDateFile /b SetNavigation /b ViewData /b MoveActiveWindow /b CenterMainWindow /b CenterModalWindow /l sqlite3facade /l hbsqlit3 /l sqlite3 /r eib_hmg /nx %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 call %MG_ROOT%\batch\compile.bat eib_hmg               /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ctklib                /do %1 %2 %3 %4 %5 %6 %7 %8 %9
@@ -46,7 +48,9 @@ call %MG_ROOT%\batch\compile.bat DeleteQuote           /do %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat Download              /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat download_csv          /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat DownloadQuestion      /do %1 %2 %3 %4 %5 %6 %7 %8 %9
-call %MG_ROOT%\batch\compile.bat EndOfProgram          /do %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat Import                /do %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat NoInternetAccess      /do %1 %2 %3 %4 %5 %6 %7 %8 %9
+call %MG_ROOT%\batch\compile.bat EndTheProgram         /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat GetDateFile           /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat SetNavigation         /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 call %MG_ROOT%\batch\compile.bat ViewData              /do %1 %2 %3 %4 %5 %6 %7 %8 %9
@@ -56,9 +60,9 @@ call %MG_ROOT%\batch\compile.bat CenterModalWindow     /do %1 %2 %3 %4 %5 %6 %7 
 call %MG_ROOT%\batch\compile.bat test                  /do %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 IF NOT EXIST eib_hmg.exe goto :END
-IF NOT EXIST c:\upx-win32\upx.exe goto :END
+IF NOT EXIST %~d0\upx-win32\upx.exe goto :END
 
-IF EXIST c:\upx-win32\upx.exe c:\upx-win32\upx.exe -9 -q eib_hmg.exe -o eib.exe
+IF EXIST %~d0\upx-win32\upx.exe %~d0\upx-win32\upx.exe -9 -q eib_hmg.exe -o eib.exe
 
 IF EXIST eib.exe DEL eib_hmg.exe
 

@@ -17,6 +17,7 @@ PROCEDURE  SetNavigation()
   win_Main.lbl_Next.Enabled  := TRUE
   win_Main.lbl_Last.Enabled  := TRUE
 
+
   IF nPage == 1
 
     win_Main.lbl_First.Enabled := FALSE

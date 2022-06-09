@@ -1,5 +1,5 @@
 *HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
-*OPEN SOURCE PROJECT 2005-2011 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/                                                                                                                                      
+*OPEN SOURCE PROJECT 2005-2011 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
 
 DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZE NOSYSMENU ON INIT WIN_MAIN_ONINIT( ) BACKCOLOR { 000 , 085 , 229 } ON MOUSECLICK MOVEACTIVEWINDOW( , THIS.NAME ) ON RESTORE MOVEACTIVEWINDOW( , THIS.NAME ) ON GOTFOCUS MOVEACTIVEWINDOW( , THIS.NAME )
 
@@ -12,7 +12,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fARIAL
             FONTSIZE 10
             BACKCOLOR { 000 , 085 , 229 }
-     END LABEL  
+     END LABEL
 
      DEFINE IMAGE img_APPTitle
             ROW    2
@@ -21,7 +21,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             HEIGHT 32
             PICTURE "APP_MAIN"
             STRETCH .T.
-     END IMAGE  
+     END IMAGE
 
      DEFINE LABEL lbl_APPTitle
             ROW    2
@@ -35,7 +35,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTCOLOR { 255 , 255 , 255 }
             VCENTERALIGN .T.
             ACTION MoveActiveWindow( , "win_Main" )
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_Counter
             ROW    2
@@ -48,9 +48,9 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             BACKCOLOR { 000 , 085 , 229 }
             FONTCOLOR { 000 , 000 , 000 }
             VCENTERALIGN .T.
-            RIGHTALIGN .F. 
+            RIGHTALIGN .F.
             ACTION MoveActiveWindow( , "win_Main" )
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_Date
             ROW    2
@@ -65,7 +65,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             VCENTERALIGN .T.
             RIGHTALIGN .F.
             ACTION MoveActiveWindow( , "win_Main" )
-     END LABEL  
+     END LABEL
 
      DEFINE BUTTON btn_DownloadCSV
             ROW    2
@@ -77,7 +77,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 10
             PICTURE ""
             ACTION win_Main_btn_DownloadCSV_Action()
-     END BUTTON 
+     END BUTTON
 
      DEFINE BUTTON btn_About
             ROW    2
@@ -89,8 +89,8 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 10
             PICTURE ""
             ACTION win_Main_btn_About_Action()
-     END BUTTON  
-/*	 
+     END BUTTON
+/*
      DEFINE BUTTON btn_Center
             ROW    2
             COL    1400
@@ -101,7 +101,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 10
             PICTURE ""
             ACTION win_Main_btn_Center_Action()
-     END BUTTON   
+     END BUTTON
 */
      DEFINE BUTTON btn_MinPR
             ROW    2
@@ -112,8 +112,8 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fARIAL
             FONTSIZE 10
             PICTURE ""
-     END BUTTON  
-/*	 
+     END BUTTON
+/*
      DEFINE BUTTON btn_Max
             ROW    2
             COL    1470
@@ -124,7 +124,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 10
             PICTURE ""
             ACTION win_Main_btn_Max_Action()
-     END BUTTON 
+     END BUTTON
  */
      DEFINE BUTTON btn_ExitPR
             ROW    2
@@ -135,7 +135,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fARIAL
             FONTSIZE 10
             PICTURE ""
-     END BUTTON  
+     END BUTTON
 
      DEFINE BUTTON btn_test
             ROW    34
@@ -147,7 +147,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 10
             PICTURE ""
             ACTION win_Main_btn_Test_Action()
-     END BUTTON 
+     END BUTTON
 
      DEFINE TEXTBOX txb_Name
             ROW    80
@@ -158,7 +158,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 15
             FONTBOLD .F.
             ON CHANGE win_Main_txb_Name_OnChange()
-     END TEXTBOX 
+     END TEXTBOX
 
      DEFINE LABEL lbl_Name
             ROW    80
@@ -176,7 +176,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             CENTERALIGN .T.
             VCENTERALIGN .T.
             BORDER .T.
-     END LABEL  
+     END LABEL
 
      DEFINE TEXTBOX txb_Address
             ROW    80
@@ -186,7 +186,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fTAHOMA
             FONTSIZE 15
             ON CHANGE win_Main_txb_Address_OnChange()
-     END TEXTBOX 
+     END TEXTBOX
 
      DEFINE LABEL lbl_Address
             ROW    80
@@ -204,7 +204,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             CENTERALIGN .T.
             VCENTERALIGN .T.
             BORDER .T.
-     END LABEL  
+     END LABEL
 
      DEFINE TEXTBOX txb_Place
             ROW    80
@@ -214,7 +214,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTNAME fTAHOMA
             FONTSIZE 15
             ON CHANGE win_Main_txb_Place_OnChange()
-     END TEXTBOX 
+     END TEXTBOX
 
      DEFINE LABEL lbl_Place
             ROW    80
@@ -232,7 +232,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             CENTERALIGN .T.
             VCENTERALIGN .T.
             BORDER .T.
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_First
             ROW    135
@@ -250,7 +250,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             CENTERALIGN .T.
             VCENTERALIGN .T.
             BORDER .T.
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_Prior
             ROW    135
@@ -268,7 +268,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             CENTERALIGN .T.
             VCENTERALIGN .T.
             BORDER .T.
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_Next
             ROW    135
@@ -286,7 +286,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             CENTERALIGN .T.
             VCENTERALIGN .T.
             BORDER .T.
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_Last
             ROW    135
@@ -304,16 +304,16 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             CENTERALIGN .T.
             VCENTERALIGN .T.
             BORDER .T.
-     END LABEL  
+     END LABEL
 
      DEFINE FRAME frm_Record1
             COL 20
             ROW 180
             WIDTH 1500
             HEIGHT 95
-			FONTNAME fTAHOMA
+            FONTNAME fTAHOMA
             FONTSIZE 1
-     END FRAME 
+     END FRAME
 
      DEFINE EDITBOX edb_Record1
             ROW    185
@@ -325,14 +325,14 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 13
             NOVSCROLLBAR .T.
             NOHSCROLLBAR .T.
-     END EDITBOX   
+     END EDITBOX
 
      DEFINE FRAME frm_Record2
             COL 20
             ROW 285
             WIDTH 1500
             HEIGHT 95
-     END FRAME 
+     END FRAME
 
      DEFINE EDITBOX edb_Record2
             ROW    290
@@ -344,14 +344,14 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 13
             NOVSCROLLBAR .T.
             NOHSCROLLBAR .T.
-     END EDITBOX   
+     END EDITBOX
 
      DEFINE FRAME frm_Record3
             COL 20
             ROW 390
             WIDTH 1500
             HEIGHT 95
-     END FRAME 
+     END FRAME
 
      DEFINE EDITBOX edb_Record3
             ROW    395
@@ -363,14 +363,14 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 13
             NOVSCROLLBAR .T.
             NOHSCROLLBAR .T.
-     END EDITBOX   
+     END EDITBOX
 
      DEFINE FRAME frm_Record4
             COL 20
             ROW 495
             WIDTH 1500
             HEIGHT 95
-     END FRAME 
+     END FRAME
 
      DEFINE EDITBOX edb_Record4
             ROW    500
@@ -382,14 +382,14 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 13
             NOVSCROLLBAR .T.
             NOHSCROLLBAR .T.
-     END EDITBOX   
+     END EDITBOX
 
      DEFINE FRAME frm_Record5
             COL 20
             ROW 600
             WIDTH 1500
             HEIGHT 95
-     END FRAME 
+     END FRAME
 
      DEFINE EDITBOX edb_Record5
             ROW    605
@@ -401,7 +401,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTSIZE 13
             NOVSCROLLBAR .T.
             NOHSCROLLBAR .T.
-     END EDITBOX   
+     END EDITBOX
 
      DEFINE LABEL lbl_EPUAP
             ROW    730
@@ -416,7 +416,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTCOLOR { 255 , 255 , 000 }
             BORDER .T.
             CENTERALIGN .T.
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_csv
             ROW    770
@@ -431,7 +431,7 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTCOLOR { 255 , 255 , 000 }
             BORDER .T.
             CENTERALIGN .T.
-     END LABEL  
+     END LABEL
 
      DEFINE LABEL lbl_xml
             ROW    770
@@ -446,7 +446,6 @@ DEFINE WINDOW TEMPLATE AT 0 , 0 WIDTH 1536 HEIGHT 824 ICON 'MAINICON' MAIN NOSIZ
             FONTCOLOR { 255 , 255 , 000 }
             BORDER .T.
             CENTERALIGN .T.
-     END LABEL  
+     END LABEL
 
 END WINDOW
-

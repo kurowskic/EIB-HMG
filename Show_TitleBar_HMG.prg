@@ -9,11 +9,11 @@ PROCEDURE Show_TitleBar()
 
   LOCAL hDC
   LOCAL BTstruct
-  
+
   LOCAL nTypeText
   LOCAL nAlingText
   LOCAL nOrientation
-  
+
   LOCAL hBMP
 
   hDC = BT_CreateDC( "win_Main" , BT_HDC_INVALIDCLIENTAREA , @BTstruct )
@@ -22,20 +22,19 @@ PROCEDURE Show_TitleBar()
   nAlingText   := BT_TEXT_LEFT + BT_TEXT_TOP
   nOrientation := 0
 
-
   BT_DrawText ( hDC , 2 * APP_ADJUST_Y , 45 * APP_ADJUST_X , NAZWA_PR , fARIAL , ( 20 + 1 ) * APP_ADJUST_Y , WHITE , BLUE , nTypeText , nAlingText , nOrientation )
 
 
   IF LEN( aDataBase ) > 0
-  
+
     BT_DrawText ( hDC , 2 * APP_ADJUST_Y , 540 * APP_ADJUST_X , STR( LEN( aDataBase ) ) , fCOURIER , 20 * APP_ADJUST_Y , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
     BT_DrawText ( hDC , 2 * APP_ADJUST_Y , 810 * APP_ADJUST_X , GetDateFile() , fCOURIER , 20 * APP_ADJUST_Y , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
 
   ELSE
-  
+
     BT_DrawText ( hDC , 2 * APP_ADJUST_Y , 540 * APP_ADJUST_X , "" , fCOURIER , 20 * APP_ADJUST_Y , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
     BT_DrawText ( hDC , 2 * APP_ADJUST_Y , 810 * APP_ADJUST_X , "Brak danych. Pobierz dane --->>>" , fCOURIER , 20 * APP_ADJUST_Y , BLACK , BLUE , nTypeText , nAlingText , nOrientation )
-  
+
   ENDIF
 
 

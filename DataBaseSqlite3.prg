@@ -10,41 +10,41 @@ PROCEDURE DataBaseSqliteCreate()
   LOCAL db_eib
   LOCAL cTableData
   LOCAL cTableInfo
-  
+
   LOCAL aStructData
   LOCAL aStructInfo
-  
+
   LOCAL oSQL
 
   db_eib     := "db_lesp.db"
-  cTableData := "lesp_current"  
+  cTableData := "lesp_current"
   cTableInfo := "lesp_current_info"
-  
+
   aStructData := {}
   aStructInfo := {}
 
   AADD( aStructData , { "Name"         , "C" , 250,0 } )
   AADD( aStructData , { "Regon"        , "C" ,  20,0 } )
-  AADD( aStructData , { "Address"      , "C" , 250,0 } )  
+  AADD( aStructData , { "Address"      , "C" , 250,0 } )
   AADD( aStructData , { "Zip"          , "C" ,   6,0 } )
   AADD( aStructData , { "Place"        , "C" , 250,0 } )
-  AAdd( aStructData , { "URI"          , "C" , 250,0 } )	
-  
+  AAdd( aStructData , { "URI"          , "C" , 250,0 } )
+
   AADD( aStructInfo , { "Count"        , "C" ,   6,0 } )
   AADD( aStructInfo , { "Date"         , "C" ,  30,0 } )
 
-  oSQL := SQLiteFacade():New( db_eib ) 
+  oSQL := SQLiteFacade():New( db_eib )
 
   oSQL:Open()
 
-  
-  IF oSQL:ExistsTable( cTableData )  
+
+  IF oSQL:ExistsTable( cTableData )
 
     oSQL:DeleteTable( cTableData )
 
   ENDIF
 
-  IF oSQL:ExistsTable( cTableInfo )  
+  IF oSQL:ExistsTable( cTableInfo )
 
     oSQL:DeleteTable( cTableInfo )
 
@@ -52,14 +52,14 @@ PROCEDURE DataBaseSqliteCreate()
 
 
   oSQL:Close()
-  
-  
+
+
   oSQL:Open()
   oSQL:CreateTable( cTableData , aStructData )
   oSQL:CreateTable( cTableInfo , aStructInfo )
   oSQL:Close()
 
-RETURN 
+RETURN
 *-----------------------------------------------------------------------------*
 
 
@@ -72,7 +72,7 @@ PROCEDURE DataBaseSqliteImportDataBase()
   LOCAL db_eib
   LOCAL cTableData
   LOCAL cTableInfo
-  
+
   LOCAL sqlData
   LOCAL sqlInfo
 
@@ -86,13 +86,13 @@ PROCEDURE DataBaseSqliteImportDataBase()
   LOCAL cURI
 
   db_eib     := "db_lesp.db"
-  cTableData := "lesp_current"  
+  cTableData := "lesp_current"
   cTableInfo := "lesp_current_info"
-  
+
   oSQL := SQLiteFacade():New( db_eib )
 
   oSQL:Open()
-  
+
   sqlData := oSQL:Prepare("INSERT INTO " + cTableData + " (Name,Regon,Address,Zip,Place,URI) VALUES(:Name,:Regon,:Address,:Zip,:Place,:URI);")
   sqlInfo := oSQL:Prepare("INSERT INTO " + cTableInfo + " (Count,Date) VALUES(:Count,:Date);")
 
@@ -101,7 +101,7 @@ PROCEDURE DataBaseSqliteImportDataBase()
   sqlInfo:SetString( ":Count" , STR( LEN( aDataBase ) ) )
   sqlInfo:SetString( ":Date"  , GetDateFile() )
   sqlInfo:ExecuteUpdate()
-  
+
   sqlInfo:Close()
 
 
@@ -135,11 +135,11 @@ PROCEDURE DataBaseSqliteImportDataBase()
 
 
   oSQL:CommitTransaction()
-  
+
   sqlData:Close()
   oSQL:Close()
 
-RETURN 
+RETURN
 *-----------------------------------------------------------------------------*
 
 
@@ -155,7 +155,7 @@ FUNCTION DataBaseSqliteGetCount()
   LOCAL cCount
 
   db_eib     := "db_lesp.db"
-  
+
   cTableInfo := "lesp_current_info"
 
   oSQL := SQLiteFacade():New( db_eib )
@@ -167,12 +167,12 @@ FUNCTION DataBaseSqliteGetCount()
   sqlData := oSQL:Prepare( cSelectSQL )
   oResponse := sqlData:executeQuery()
 
-  cCount    := oResponse:getString( "Count" )  
-    
+  cCount    := oResponse:getString( "Count" )
+
   oResponse:Close()
   sqlData:Close()
   oSQL:Close()
-  
+
 RETURN cCount
 *-----------------------------------------------------------------------------*
 
@@ -183,13 +183,13 @@ FUNCTION DataBaseSqliteGetDate()
 
   LOCAL oSQL
   LOCAL oResponse
-  
+
   LOCAL db_eib
   LOCAL cTableInfo
   LOCAL cDate
-  
+
   db_eib     := "db_lesp.db"
-  
+
   cTableInfo := "lesp_current_info"
 
   oSQL := SQLiteFacade():New( db_eib )
@@ -201,8 +201,8 @@ FUNCTION DataBaseSqliteGetDate()
   sqlData := oSQL:Prepare( cSelectSQL )
   oResponse := sqlData:executeQuery()
 
-  cDate    := oResponse:getString( "Date" )  
-  
+  cDate    := oResponse:getString( "Date" )
+
   oResponse:Close()
   sqlData:Close()
   oSQL:Close()
@@ -217,14 +217,14 @@ FUNCTION DataBaseSqliteGet5Records( xnPage , xcName , xcAddress , xcPlace )
 
   LOCAL oSQL
   LOCAL oResponse
-  
+
   LOCAL db_eib
   LOCAL cTableData
   LOCAL cSelectSQL
   LOCAL cSelectSQL_Where
 
   LOCAL aRecords := {}
-  
+
   LOCAL nI
 
   DEFAULT xnPage    := 1 - 1
@@ -233,14 +233,14 @@ FUNCTION DataBaseSqliteGet5Records( xnPage , xcName , xcAddress , xcPlace )
   DEFAULT xcPlace   := ""
 
   xnPage := xnPage - 1
-  
+
   db_eib     := "db_lesp.db"
-  
+
   cTableData := "lesp_current"
 
 
   FOR nI := 1 TO VIEW_RECORDS
-  
+
     AADD( aRecords , { "", "" , "" , "" , "", "" } )
 
   NEXT nI
@@ -249,7 +249,7 @@ FUNCTION DataBaseSqliteGet5Records( xnPage , xcName , xcAddress , xcPlace )
   oSQL := SQLiteFacade():New( db_eib )
 
   oSQL:Open()
-  
+
   cSelectSQL_Where := ;
     IIF( (.NOT. EMPTY( xcName ) .OR. .NOT. EMPTY( xcAddress ) .OR. .NOT. EMPTY( xcPlace) ) ,;
       + " WHERE ";
@@ -266,10 +266,10 @@ FUNCTION DataBaseSqliteGet5Records( xnPage , xcName , xcAddress , xcPlace )
               + "lesp_current.Address,";
               + "lesp_current.Zip,";
               + "lesp_current.Place,";
-              + "lesp_current.URI";					   
+              + "lesp_current.URI";
               + " FROM ";
               + ALLTRIM( cTableData );
-              + cSelectSQL_Where;			  
+              + cSelectSQL_Where;
               + " LIMIT " + ALLTRIM( STR (VIEW_RECORDS ) );
               + " OFFSET " + ALLTRIM( STR ( VIEW_RECORDS ) );
               + "*" + ALLTRIM( STR ( xnPage ) );
@@ -284,10 +284,10 @@ FUNCTION DataBaseSqliteGet5Records( xnPage , xcName , xcAddress , xcPlace )
 
 
   WHILE ( oResponse:next() )
-  
+
     nRecord++
 
-    aRecords[ nRecord , 1 ] := oResponse:getString( "Name" ) 
+    aRecords[ nRecord , 1 ] := oResponse:getString( "Name" )
     aRecords[ nRecord , 2 ] := oResponse:getString( "Regon" )
     aRecords[ nRecord , 3 ] := oResponse:getString( "Address" )
     aRecords[ nRecord , 4 ] := oResponse:getString( "Zip" )
@@ -311,27 +311,27 @@ FUNCTION DataBaseSqliteGetCountRecords( xcName , xcAddress , xcPlace )
 
   LOCAL oSQL
   LOCAL oResponse
-  
+
   LOCAL db_eib
   LOCAL cTableData
   LOCAL cSelectSQL
   LOCAL cSelectSQL_Where
-  
+
   LOCAL nCount
 
   DEFAULT xcName    := ""
   DEFAULT xcAddress := ""
   DEFAULT xcPlace   := ""
 
-  
+
   db_eib     := "db_lesp.db"
-  
+
   cTableData := "lesp_current"
 
   oSQL := SQLiteFacade():New( db_eib )
 
   oSQL:Open()
-  
+
   cSelectSQL_Where := ;
     IIF( (.NOT. EMPTY( xcName ) .OR. .NOT. EMPTY( xcAddress ) .OR. .NOT. EMPTY( xcPlace) ) ,;
       + " WHERE ";
@@ -342,17 +342,17 @@ FUNCTION DataBaseSqliteGetCountRecords( xcName , xcAddress , xcPlace )
       + IF( (.NOT. EMPTY( xcPlace ) ), "Place LIKE '%" + xcPlace + "%'", "" );
       , "" )
 
-  cSelectSQL := "SELECT Count() ";				   
+  cSelectSQL := "SELECT Count() ";
               + " FROM ";
               + ALLTRIM( cTableData );
-              + cSelectSQL_Where;			  
+              + cSelectSQL_Where;
               + " ;"
 
 
   sqlData   := oSQL:Prepare( cSelectSQL )
   oResponse := sqlData:executeQuery()
 
-  nCount    := oResponse:getInteger( "Count()" ) 
+  nCount    := oResponse:getInteger( "Count()" )
 
   oResponse:Close()
   sqlData:Close()
@@ -372,7 +372,7 @@ PROCEDURE DataBaseSqliteViewData( xnPage )
   LOCAL nRecord3
   LOCAL nRecord4
   LOCAL nRecord5
-  
+
   LOCAL nRecords
 
   LOCAL aDataBase := {}
@@ -392,7 +392,7 @@ PROCEDURE DataBaseSqliteViewData( xnPage )
   ClearRecords()
 
 
-  aDataBase := DataBaseSqliteGet5Records( xnPage , win_Main.txb_Name.Value , win_Main.txb_Address.Value, win_Main.txb_Place.Value ) 
+  aDataBase := DataBaseSqliteGet5Records( xnPage , win_Main.txb_Name.Value , win_Main.txb_Address.Value, win_Main.txb_Place.Value )
   nRecords := DataBaseSqliteGetCountRecords( win_Main.txb_Name.Value , win_Main.txb_Address.Value, win_Main.txb_Place.Value )
 
 
@@ -402,10 +402,10 @@ PROCEDURE DataBaseSqliteViewData( xnPage )
   IF xnPage > 1
 
     win_Main.lbl_Prior.Value := "<< " + ALLTRIM( STR( xnPage - 1 ) ) + " <<"
- 
+
   ELSE
 
-    win_Main.lbl_Prior.Value := "<< " + ALLTRIM( STR( xnPage ) ) + " <<" 
+    win_Main.lbl_Prior.Value := "<< " + ALLTRIM( STR( xnPage ) ) + " <<"
 
   ENDIF
 
@@ -440,7 +440,7 @@ PROCEDURE DataBaseSqliteViewData( xnPage )
     win_Main.lbl_Last.Value := ">> " + ALLTRIM( STR( ( INT ( nRecords / 5 ) ) + 1 ) ) + " >>||"
 
   ENDIF
- 
+
 
   win_Main.edb_Record1.Value := ;
       aDataBase[ nRecord1 , 1 ] ;

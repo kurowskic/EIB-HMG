@@ -97,7 +97,7 @@ PROCEDURE csv2Memeory( xcName , xcAddress , xcPlace )
                 // 0 1 1
                 CASE       EMPTY( xcName ) .AND. .NOT. EMPTY( xcAddress) .AND. .NOT. EMPTY( xcPlace )
 
-                  IF ( UPPER ( ALLTRIM( xcAddress ) ) $ UPPER ( ALLTRIM( cAdres ) ) ; 
+                  IF ( UPPER ( ALLTRIM( xcAddress ) ) $ UPPER ( ALLTRIM( cAdres ) ) ;
                      .AND. ;
                      UPPER ( ALLTRIM( xcPlace ) ) $ UPPER ( ALLTRIM( cMiejscowosc ) );
                      )
@@ -120,7 +120,7 @@ PROCEDURE csv2Memeory( xcName , xcAddress , xcPlace )
                 // 1 0 1
                 CASE .NOT. EMPTY( xcName ) .AND.       EMPTY( xcAddress) .AND. .NOT. EMPTY( xcPlace )
 
-                  IF ( UPPER ( ALLTRIM( xcName ) ) $ UPPER ( ALLTRIM( cNazwa ) ) ; 
+                  IF ( UPPER ( ALLTRIM( xcName ) ) $ UPPER ( ALLTRIM( cNazwa ) ) ;
                      .AND. ;
                      UPPER ( ALLTRIM( xcPlace ) ) $ UPPER ( ALLTRIM( cMiejscowosc ) );
                      )
@@ -133,7 +133,7 @@ PROCEDURE csv2Memeory( xcName , xcAddress , xcPlace )
                 // 1 1 0
                 CASE .NOT. EMPTY( xcName ) .AND. .NOT. EMPTY( xcAddress) .AND.       EMPTY( xcPlace )
 
-                  IF ( UPPER ( ALLTRIM( xcName ) ) $ UPPER ( ALLTRIM( cNazwa ) ) ; 
+                  IF ( UPPER ( ALLTRIM( xcName ) ) $ UPPER ( ALLTRIM( cNazwa ) ) ;
                      .AND. ;
                      UPPER ( ALLTRIM( xcAddress ) ) $ UPPER ( ALLTRIM( cAdres ) );
                      )
@@ -146,7 +146,7 @@ PROCEDURE csv2Memeory( xcName , xcAddress , xcPlace )
                 // 1 1 1
                 CASE .NOT. EMPTY( xcName ) .AND. .NOT. EMPTY( xcAddress) .AND. .NOT. EMPTY( xcPlace )
 
-                  IF ( UPPER ( ALLTRIM( xcName ) ) $ UPPER ( ALLTRIM( cNazwa ) )      ; 
+                  IF ( UPPER ( ALLTRIM( xcName ) ) $ UPPER ( ALLTRIM( cNazwa ) )      ;
                      .AND. ;
                      UPPER ( ALLTRIM( xcAddress ) ) $ UPPER ( ALLTRIM( cAdres ) )     ;
                      .AND. ;

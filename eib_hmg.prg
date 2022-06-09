@@ -11,10 +11,10 @@ PROCEDURE Main()
   MEMVAR APP_COL
   MEMVAR APP_HEIGHT
   MEMVAR APP_WIDTH
-  
+
   MEMVAR APP_ADJUST_X
   MEMVAR APP_ADJUST_Y
-  
+
   MEMVAR fARIAL
   MEMVAR fCOURIER
   MEMVAR fTIMES
@@ -44,14 +44,14 @@ PROCEDURE Main()
 
 
 #IFDEF _HMG_3_
-                    
-  REQUEST HB_CODEPAGE_PLWIN     
-  HB_SETCODEPAGE("PLWIN")    
- 
-  REQUEST HB_LANG_PL   
+
+  REQUEST HB_CODEPAGE_PLWIN
+  HB_SETCODEPAGE("PLWIN")
+
+  REQUEST HB_LANG_PL
   HB_LANGSELECT("PL")
- 
-  SET LANGUAGE TO POLISH 
+
+  SET LANGUAGE TO POLISH
   SET CODEPAGE TO POLISH
 
 #ENDIF
@@ -100,7 +100,7 @@ PROCEDURE Main()
 
   APP_ROW    :=    0
   APP_COL    :=    0
-  APP_HEIGHT := 1536 
+  APP_HEIGHT := 1536
   APP_WIDTH  :=  824
 
 #ENDIF
@@ -242,41 +242,41 @@ PROCEDURE Main()
 #IFDEF _HMG_2_
 
     win_Main.btn_test.Hide
-	
+
 #ENDIF
 
 
-    DO CASE 
-	
+    DO CASE
+
       CASE GetDesktopRealHeight() == GetProperty( "win_Main" , "Height" ) ;
-	       .AND. ;
-		   GetDesktopRealWidth() == GetProperty( "win_Main" , "Width" )
+           .AND. ;
+           GetDesktopRealWidth() == GetProperty( "win_Main" , "Width" )
 
 //             win_Main.btn_Center.Hide
 //             win_Main.btn_Max.Hide
 
 
       CASE GetDesktopRealHeight() < GetProperty( "win_Main" , "Height" ) ;
-	       .AND. ;
-		   GetDesktopRealWidth() < GetProperty( "win_Main" , "Width" )
-		   
+           .AND. ;
+           GetDesktopRealWidth() < GetProperty( "win_Main" , "Width" )
+
              APP_ADJUST_Y :=  GetDesktopRealHeight() / win_Main.Height
-	         SetProperty( "win_Main" , "Height" , GetProperty( "win_Main" , "Height" ) * APP_ADJUST_Y )
-	  
+             SetProperty( "win_Main" , "Height" , GetProperty( "win_Main" , "Height" ) * APP_ADJUST_Y )
+
              APP_ADJUST_X := GetDesktopRealWidth() / win_Main.Width
              SetProperty( "win_Main" , "Width" , GetProperty( "win_Main" , "Width" ) * APP_ADJUST_X )
-	   
+
 //             win_Main.btn_Center.Hide
 //             win_Main.btn_Max.Hide
 
 
       CASE GetDesktopRealHeight() > GetProperty( "win_Main" , "Height" ) ;
                .AND. ;
-		   GetDesktopRealWidth() > GetProperty( "win_Main" , "Width" )
-	   
+           GetDesktopRealWidth() > GetProperty( "win_Main" , "Width" )
+
 //             win_Main.btn_Center.Show
-		 
-		 
+
+
     END CASE
 
 
@@ -286,19 +286,19 @@ PROCEDURE Main()
     APP_WIDTH  := win_Main.Width
 
     AADD( aFrm , { "win_Main" , win_Main.Row , win_Main.Col } )
-	
-    ON KEY ALT+F4 OF win_Main ACTION { || EndOfProgram() }
-	ON KEY F2     OF win_Main ACTION { || CenterMainWindow()    }
+
+    ON KEY ALT+F4 OF win_Main ACTION { || EndTheProgram() }
+    ON KEY F2     OF win_Main ACTION { || CenterMainWindow()    }
 
     SetProperty( "win_Main" , "btn_ExitPR" , "Action" , { || win_main_btn_ExitPr() } )
     SetProperty( "win_Main" , "btn_MinPR"  , "Action" , { || win_main_btn_MinPr()  } )
 
-    win_Main.btn_DownloadCSV.Picture := 'APP_DOWN_20'  
-    win_Main.btn_About.Picture       := 'APP_INFO_20' 
+    win_Main.btn_DownloadCSV.Picture := 'APP_DOWN_20'
+    win_Main.btn_About.Picture       := 'APP_INFO_20'
 //    win_Main.btn_Center.Picture      := 'APP_CENT_20'
-//    win_Main.btn_Max.Picture         := 'APP_MAXI_20' 
+//    win_Main.btn_Max.Picture         := 'APP_MAXI_20'
     win_Main.btn_MinPR.Picture       := 'APP_MINI_20'
-    win_Main.btn_ExitPR.Picture      := 'APP_EXIT_20' 
+    win_Main.btn_ExitPR.Picture      := 'APP_EXIT_20'
 
     win_Main.Center
     win_Main.Activate

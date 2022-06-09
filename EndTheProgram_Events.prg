@@ -1,5 +1,5 @@
 *-----------------------------------------------------------------------------*
-PROCEDURE win_EndOfProgram_btn_YES()
+PROCEDURE win_EndTheProgram_btn_YES()
 *-----------------------------------------------------------------------------*
 
   RELEASE WINDOW ALL
@@ -9,7 +9,7 @@ RETURN
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE win_EndOfProgram_btn_NOT()
+PROCEDURE win_EndTheProgram_btn_NOT()
 *-----------------------------------------------------------------------------*
 
 
@@ -33,14 +33,14 @@ RETURN
 
 
 *-----------------------------------------------------------------------------*
-PROCEDURE win_EndOfProgram_OnGotFocus()
+PROCEDURE win_EndTheProgram_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-  CenterModalWindow( "win_EndOfProgram" )
+  CenterModalWindow( "win_EndTheProgram" )
 
-  AutoAdjustControls( "win_EndOfProgram" )
+  AutoAdjustControls( "win_EndTheProgram" )
 
-  CTK_DrawBorder( "win_EndOfProgram" )
+  CTK_DrawBorder( "win_EndTheProgram" )
 
 RETURN
 *-----------------------------------------------------------------------------*

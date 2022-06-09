@@ -20,7 +20,7 @@ PROCEDURE DataBaseInit()
 
   IF !FILE("db_lesp.db")
 
-    DataBaseSqliteCreate()	
+    DataBaseSqliteCreate()
     DataBaseInfo()
 
   ELSE
@@ -53,7 +53,7 @@ PROCEDURE DataBaseInit()
 
   DataBaseInfo()
 
-	
+
 #ENDIF
 
 
@@ -78,7 +78,7 @@ PROCEDURE DataBaseImport()
     , ALLTRIM( win_Main.txb_Place.Value   ) ;
     )
 
-  DataBaseSqliteCreate()	
+  DataBaseSqliteCreate()
 
   DataBaseSqliteImportDataBase()
   aDataBase := {}
@@ -120,7 +120,7 @@ PROCEDURE DataBaseInfo()
 
 #IFDEF _HMG_2_
 
-#IFDEF __SQLITE__  
+#IFDEF __SQLITE__
 
   IF DataBaseSqliteGetCountRecords() > 0
 
@@ -151,7 +151,7 @@ PROCEDURE DataBaseInfo()
   ENDIF
 
 
-#ENDIF  
+#ENDIF
 
 
 #ENDIF
@@ -162,7 +162,7 @@ PROCEDURE DataBaseInfo()
   Show_TitleBar()
   win_Main.Hide
   win_Main.Show
-  
+
 #ENDIF
 
 

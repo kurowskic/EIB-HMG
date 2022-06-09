@@ -23,7 +23,7 @@ FUNCTION GetDateFile()
 
     aFileInfo := Directory ( cFile )
 
-    cDateFile := DtoC( aFileInfo[ 1 , F_DATE ] ) + " " + aFileInfo[ 1 , F_TIME ]	 
+    cDateFile := DtoC( aFileInfo[ 1 , F_DATE ] ) + " " + aFileInfo[ 1 , F_TIME ]
 
     cDateFile := STRTRAN( cDateFile , "/01/" , " stycznia " )
     cDateFile := STRTRAN( cDateFile , "/02/" , " lutego " )

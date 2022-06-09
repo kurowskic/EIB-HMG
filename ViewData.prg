@@ -12,7 +12,7 @@ PROCEDURE ViewData( xnPage )
   LOCAL nRecord2
   LOCAL nRecord3
   LOCAL nRecord4
-  LOCAL nRecord5 
+  LOCAL nRecord5
 
   MEMVAR aDataBase
 
@@ -36,10 +36,10 @@ PROCEDURE ViewData( xnPage )
   IF xnPage > 1
 
     win_Main.lbl_Prior.Value := "<< " + ALLTRIM( STR( xnPage - 1 ) ) + " <<"
- 
+
   ELSE
 
-    win_Main.lbl_Prior.Value := "<< " + ALLTRIM( STR( xnPage ) ) + " <<" 
+    win_Main.lbl_Prior.Value := "<< " + ALLTRIM( STR( xnPage ) ) + " <<"
 
   ENDIF
 

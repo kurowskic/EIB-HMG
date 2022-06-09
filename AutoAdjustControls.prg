@@ -19,22 +19,22 @@ PROCEDURE AutoAdjustControls( xcForm )
 #ENDIF
 
 
-#IFDEF _HMG_3_ 
+#IFDEF _HMG_3_
 
   aControls := _GetArrayOfAllControlsForForm ( xcForm )
 
 #ENDIF
 
 
-  IF LEN( aControls ) > 0 
+  IF LEN( aControls ) > 0
 
 
     FOR nI := 1 TO LEN( aControls )
 
       cControl := ALLTRIM( aControls[ nI ] )
-	
+
       SetProperty( xcForm , cControl , "Row"    , GetProperty( xcForm , cControl , "Row" )    * APP_ADJUST_Y )
-      SetProperty( xcForm , cControl , "Col"    , GetProperty( xcForm , cControl , "Col" )    * APP_ADJUST_X )  
+      SetProperty( xcForm , cControl , "Col"    , GetProperty( xcForm , cControl , "Col" )    * APP_ADJUST_X )
       SetProperty( xcForm , cControl , "Width"  , GetProperty( xcForm , cControl , "Width" )  * APP_ADJUST_X )
       SetProperty( xcForm , cControl , "Height" , GetProperty( xcForm , cControl , "Height" ) * APP_ADJUST_Y )
 
@@ -42,7 +42,7 @@ PROCEDURE AutoAdjustControls( xcForm )
       IF .NOT. "frm_" $ cControl
 
         SetProperty( xcForm , cControl , "FontSize" , GetProperty( xcForm , cControl , "FontSize" ) * APP_ADJUST_Y )
-    
+
       ENDIF
 
 
@@ -51,7 +51,7 @@ PROCEDURE AutoAdjustControls( xcForm )
 
   ENDIF
 
-  
+
   aControls := {}
 
 RETURN
@@ -141,19 +141,19 @@ FUNCTION _GetArrayOfAllControlsForForm ( cFormName )
 
       IF VALTYPE( _HMG_SYSDATA [ 3 ] [ i ] ) == 'N'
 
-	      AddCtrl( i )
+          AddCtrl( i )
 
       ELSEIF VALTYPE( _HMG_SYSDATA [ 3 ] [ i ] ) == 'A'
 
          FOR x := 1 TO LEN( _HMG_SYSDATA [ 3 ] [ i ] )
 
-			   AddCtrl( i )
+               AddCtrl( i )
 
          NEXT x
 
       ELSE
 
-	      AddCtrl( i )
+          AddCtrl( i )
 
       ENDIF
 
