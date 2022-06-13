@@ -20,17 +20,34 @@ PROCEDURE About_btn_OK()
 RETURN
 *-----------------------------------------------------------------------------*
 
-
 *-----------------------------------------------------------------------------*
-PROCEDURE About_OnGotFocus()
+PROCEDURE About_OnInit()
 *-----------------------------------------------------------------------------*
 
+// IF "Windows 10" $ OS()
+DoMethod("win_About" , "hide")
   CenterModalWindow( "win_About" )
 
   AutoAdjustControls( "win_About" )
 
   CTK_DrawBorder( "win_About" )
+  DoMethod("win_About" , "show")
+// ENDIF
+RETURN
+*-----------------------------------------------------------------------------*
 
+
+*-----------------------------------------------------------------------------*
+PROCEDURE About_OnGotFocus()
+*-----------------------------------------------------------------------------*
+
+IF "Windows 10" $ OS()
+  CenterModalWindow( "win_About" )
+
+  AutoAdjustControls( "win_About" )
+
+  CTK_DrawBorder( "win_About" )
+ENDIF
 RETURN
 *-----------------------------------------------------------------------------*
 

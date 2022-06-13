@@ -16,7 +16,7 @@ PROCEDURE Import()
 
 #IFDEF _HMG_2_
 
-    LOAD WINDOW import2 AS win_Import
+    LOAD WINDOW Import2 AS win_Import
 
     win_Import.TitleBar := .F.
     win_Import.SysMenu  := .T.
@@ -27,7 +27,7 @@ PROCEDURE Import()
 
 #IFDEF _HMG_3_
 
-    LOAD WINDOW import3 AS win_Import
+    LOAD WINDOW Import3 AS win_Import
 
 #ENDIF
 

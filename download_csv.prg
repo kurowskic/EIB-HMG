@@ -19,6 +19,7 @@ FUNCTION download_csv( xlProgress )
   LOCAL cFile
   LOCAL nLevel := 1
   LOCAL isInternetAccess := TRUE
+  LOCAL oEmptyHttp
   
 
   DEFAULT xlProgress := TRUE
@@ -38,18 +39,22 @@ FUNCTION download_csv( xlProgress )
 
   oHTTPS := CreateObject("Microsoft.XMLHTTP")
 
+  oEmptyHttp := ;
+  oHTTPS:Open( "GET" , cURL , .F. )
 
-  IF .NOT. EMPTY( oHTTPS:Open( "GET" , cURL , .F. ) )
+ // msgbox(any2Str(oEmptyHttp))
+ // IF .NOT. EMPTY( oEmptyHttp )
+//  )
 
     oHTTPS:Send()
 
     cReturn := oHTTPS:responseText
 
-  ELSE
+ // ELSE
 
-    isInternetAccess := FALSE
+ //   isInternetAccess := FALSE
 
-  ENDIF
+ // ENDIF
 
 
   IF xlProgress
@@ -69,6 +74,7 @@ FUNCTION download_csv( xlProgress )
 
     IF nSuccess <> LEN( cReturn )
 
+      nLevel  := 3
       cReturn := ""
 
     ELSE
@@ -76,6 +82,9 @@ FUNCTION download_csv( xlProgress )
       FClose( nFileHandler )
 
     ENDIF
+	
+	
+    nLevel := 0
 
   ELSE
 
