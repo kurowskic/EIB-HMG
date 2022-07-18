@@ -12,4 +12,6 @@ del eib_hmg.exe
 del eib.exe
 del db_lesp.db
 del db_lesp.db-journal
+del eib_hmg.log
 del temp.txt
+del *.bak
