@@ -24,16 +24,15 @@ RETURN
 PROCEDURE About_OnInit()
 *-----------------------------------------------------------------------------*
 
+// IF "Windows 10" $ OS()
+DoMethod("win_About" , "hide")
+  CenterModalWindow( "win_About" )
 
-  DoMethod("win_About" , "Hide" )
+  AutoAdjustControls( "win_About" )
 
-  SetCenterModalWindow( aFormProperty )
-
-  SetAdjustControls( aFrmControls )
-
-   CTK_DrawBorder( "win_About" )
-  DoMethod("win_About" , "Show" )
-
+  CTK_DrawBorder( "win_About" )
+  DoMethod("win_About" , "show")
+// ENDIF
 RETURN
 *-----------------------------------------------------------------------------*
 
@@ -42,12 +41,13 @@ RETURN
 PROCEDURE About_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-  SetCenterModalWindow( aFormProperty )
+IF "Windows 10" $ OS()
+  CenterModalWindow( "win_About" )
 
-  SetAdjustControls( aFrmControls )
+  AutoAdjustControls( "win_About" )
 
   CTK_DrawBorder( "win_About" )
-
+ENDIF
 RETURN
 *-----------------------------------------------------------------------------*
 

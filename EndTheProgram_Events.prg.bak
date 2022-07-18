@@ -1,6 +1,17 @@
 *-----------------------------------------------------------------------------*
-PROCEDURE About_btn_OK()
+PROCEDURE win_EndTheProgram_btn_YES()
 *-----------------------------------------------------------------------------*
+
+  RELEASE WINDOW ALL
+
+RETURN
+*-----------------------------------------------------------------------------*
+
+
+*-----------------------------------------------------------------------------*
+PROCEDURE win_EndTheProgram_btn_NOT()
+*-----------------------------------------------------------------------------*
+
 
 #IFDEF __SQLITE__
 
@@ -20,33 +31,16 @@ PROCEDURE About_btn_OK()
 RETURN
 *-----------------------------------------------------------------------------*
 
-*-----------------------------------------------------------------------------*
-PROCEDURE About_OnInit()
-*-----------------------------------------------------------------------------*
-
-
-  DoMethod("win_About" , "Hide" )
-
-  SetCenterModalWindow( aFormProperty )
-
-  SetAdjustControls( aFrmControls )
-
-   CTK_DrawBorder( "win_About" )
-  DoMethod("win_About" , "Show" )
-
-RETURN
-*-----------------------------------------------------------------------------*
-
 
 *-----------------------------------------------------------------------------*
-PROCEDURE About_OnGotFocus()
+PROCEDURE win_EndTheProgram_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-  SetCenterModalWindow( aFormProperty )
+  CenterModalWindow( "win_EndTheProgram" )
 
-  SetAdjustControls( aFrmControls )
+  AutoAdjustControls( "win_EndTheProgram" )
 
-  CTK_DrawBorder( "win_About" )
+  CTK_DrawBorder( "win_EndTheProgram" )
 
 RETURN
 *-----------------------------------------------------------------------------*

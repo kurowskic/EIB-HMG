@@ -1,4 +1,7 @@
+**-----------------------------------------------------------------------------*
+* EIB-HMG | EndTheProgram_Events.prg
 *-----------------------------------------------------------------------------*
+
 PROCEDURE win_EndTheProgram_btn_YES()
 *-----------------------------------------------------------------------------*
 
@@ -36,9 +39,9 @@ RETURN
 PROCEDURE win_EndTheProgram_OnGotFocus()
 *-----------------------------------------------------------------------------*
 
-  CenterModalWindow( "win_EndTheProgram" )
+  SetCenterModalWindow( aFormProperty )
 
-  AutoAdjustControls( "win_EndTheProgram" )
+  SetAdjustControls( aFrmControls )
 
   CTK_DrawBorder( "win_EndTheProgram" )
 

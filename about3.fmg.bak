@@ -1,5 +1,5 @@
 *-----------------------------------------------------------------------------*
-* EIB-HMG | About.fmg | win_About | _HMG_2_
+* _empty_ | About.fmg | win_About | _HMG_3_
 *-----------------------------------------------------------------------------*
 
 
@@ -17,7 +17,7 @@ DEFINE WINDOW TEMPLATE ;
   NOSYSMENU ;
   NOCAPTION ;
   CURSOR Nil ;
-  ON INIT About_OnInit() ;
+  ON INIT Nil ;
   ON RELEASE Nil ;
   ON INTERACTIVECLOSE Nil ;
   ON MOUSECLICK Nil ;
@@ -337,6 +337,7 @@ DEFINE WINDOW TEMPLATE ;
     TRANSPARENT .F.
     MULTILINE .F.
     PICTURE Nil
+    PICTALIGNMENT TOP
   END BUTTON
 
 END WINDOW
